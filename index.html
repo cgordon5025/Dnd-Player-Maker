@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+</head>
+
+<body>
+    <h1 class="text-center">DND Character Creator</h1>
+    <section class="container">
+        <section class="info">
+            <section>
+                <h3> Character Name</h3>
+                <input placeholder="Character's Name" />
+            </section>
+            <section>
+                <h3>Race</h3>
+                <input placeholder="Race" />
+            </section>
+            <section>
+                <h3>Class</h3>
+                <input placeholder="Class" />
+            </section>
+            <section>
+                <h3>Alignment</h3>
+                <input placeholder="Alignment" />
+            </section>
+            <section>
+                <h3>Background</h3>
+                <input placeholder="Background" />
+            </section>
+            <button>Randomize</button>
+        </section>
+        <section class="row">
+            <section class="col-6">
+                <h2>Ability Scores</h2>
+                <h3>Charisma</h3>
+                <input placeholder="Enter your Charisma" />
+                <p id="char-mod"></p>
+                <h3>Constitution</h3>
+                <input placeholder="Enter your Constitution" />
+                <p id="con-mod"></p>
+                <h3>Dexterity</h3>
+                <input placeholder="Enter your Dexterity" />
+                <p id="dex-mod"></p>
+                <h3>Intelligence</h3>
+                <input placeholder="Enter your Intelligence" />
+                <p id="int-mod"></p>
+                <h3>Strength</h3>
+                <input placeholder="Enter your Strength" />
+                <p id="str-mod"></p>
+                <h3>Intelligence</h3>
+                <input placeholder="Enter your Wisdom" />
+                <p id="wis-mod"></p>
+                <button>Randomize</button>
+            </section>
+            <section class="col-6">
+                <h2>Proficiencies</h2>
+                <!-- Lets have a list of all the proficiences and checkboxes-->
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Arcana (Int)
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Atheletics (Str)
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Acrobatics (Dex)
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Sleight of Hand(Dex)
+                </label>
+            </section>
+
+        </section>
+        <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
