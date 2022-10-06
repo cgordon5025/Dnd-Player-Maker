@@ -9,7 +9,8 @@
 ![mock-up.png](mock-up of website)
 
 ## Credits
-
+https://www.dnd5eapi.co/docs/#tag--Character-Data
+DND API
 ## License
 N/A
 
@@ -25,7 +26,7 @@ Feature, if they fill out the name/background, store those and then have the res
 
 
 random num generator for 5x from a range of 1-20 (generates the stats), then let them allocate where they want the stats to go
-from there calculate the mods
+from there calculate the mods modal for this
 
 Choosing a random class/race etc. could probably call down from API and do a Math.floor(math.random) type command
 
