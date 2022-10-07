@@ -13,6 +13,7 @@
 <body>
     <h1 class="text-center">DND Character Creator</h1>
     <section class="container">
+
         <section class="info">
             <section>
                 <h3> Character Name</h3>
@@ -36,56 +37,190 @@
             </section>
             <button>Randomize</button>
         </section>
+        <section class="stats">
+            <section>
+                <h3> Armor Class</h3>
+                <input placeholder="Character's AC" />
+            </section>
+            <section>
+                <h3> Hit Points</h3>
+                <input placeholder="Character's HP" />
+            </section>
+            <section>
+                <h3> Speed</h3>
+                <input placeholder="Character's Speed" />
+            </section>
+            <section>
+                <h3> Initiative</h3>
+                <p></p>
+            </section>
+            <section>
+                <h3> Hit Dice</h3>
+                <p></p>
+            </section>
+        </section>
+
         <section class="row">
-            <section class="col-6">
+            <section class="col-3">
                 <h2>Ability Scores</h2>
+            </section>
+            <section class="col-3">
+                <h2>Proficiencies</h2>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-3">
                 <h3>Charisma</h3>
                 <input placeholder="Enter your Charisma" />
                 <p id="char-mod"></p>
+            </section>
+            <section class="col-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Saving Throws
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Deception
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Intimidation
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Performance
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Persuasion
+                </label><br>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-3">
                 <h3>Constitution</h3>
                 <input placeholder="Enter your Constitution" />
                 <p id="con-mod"></p>
+            </section>
+            <section class="col-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Saving Throws
+                </label><br>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-3">
                 <h3>Dexterity</h3>
                 <input placeholder="Enter your Dexterity" />
                 <p id="dex-mod"></p>
+            </section>
+            <section class="col-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Saving Throws
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Acrobatics
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Sleight of Hand
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Stealth
+                </label><br>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-3">
                 <h3>Intelligence</h3>
                 <input placeholder="Enter your Intelligence" />
                 <p id="int-mod"></p>
+            </section>
+            <section class="col-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Saving Throws
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Arcana
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    History
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Investigation
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Nature
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Religion
+                </label><br>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-3">
                 <h3>Strength</h3>
                 <input placeholder="Enter your Strength" />
                 <p id="str-mod"></p>
-                <h3>Intelligence</h3>
+            </section>
+            <section class="col-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Saving Throws
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Athletics
+                </label><br>
+            </section>
+        </section>
+        <section class="row">
+            <section class="col-3">
+                <h3>Wisdom</h3>
                 <input placeholder="Enter your Wisdom" />
                 <p id="wis-mod"></p>
-                <button>Randomize</button>
             </section>
-            <section class="col-6">
-                <h2>Proficiencies</h2>
-                <!-- Lets have a list of all the proficiences and checkboxes-->
+            <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Arcana (Int)
-                </label>
-                <br>
+                    Saving Throws
+                </label><br>
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Atheletics (Str)
-                </label>
-                <br>
+                    Animal Handling
+                </label><br>
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Acrobatics (Dex)
-                </label>
-                <br>
+                    Insight
+                </label><br>
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Sleight of Hand(Dex)
-                </label>
-                <br>
+                    Medicine
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Perception
+                </label><br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Survival
+                </label><br>
             </section>
-
         </section>
-        <script src="./assets/js/script.js"></script>
+        <button>Randomize</button>
+    </section>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
