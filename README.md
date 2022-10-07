@@ -11,6 +11,9 @@
 ## Credits
 https://www.dnd5eapi.co/docs/#tag--Character-Data
 DND API
+
+https://en.wikipedia.org/wiki/Character_class_(Dungeons_%26_Dragons)
+Definitions for Intro Page
 ## License
 N/A
 
