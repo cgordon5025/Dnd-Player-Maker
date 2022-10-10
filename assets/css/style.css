@@ -3,3 +3,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.abilityScores {
+    border-bottom: 5px solid black;
+    margin-bottom: 5px;
+}

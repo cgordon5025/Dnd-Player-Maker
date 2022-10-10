@@ -35,7 +35,8 @@
                 <h3>Background</h3>
                 <input placeholder="Background" />
             </section>
-            <button>Randomize</button>
+            <button id="randomizeBio">Randomize</button>
+            <button id="saveBio">Save Info</button>
         </section>
         <section class="stats">
             <section>
@@ -68,11 +69,11 @@
                 <h2>Proficiencies</h2>
             </section>
         </section>
-        <section class="row">
+        <section class="abilityScores row">
             <section class="col-3">
                 <h3>Charisma</h3>
-                <input placeholder="Enter your Charisma" />
-                <p id="char-mod"></p>
+                <input class="scoreInput" placeholder="Enter your Charisma" />
+                <p class="mod"></p>
             </section>
             <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -97,11 +98,11 @@
                 </label><br>
             </section>
         </section>
-        <section class="row">
+        <section class="abilityScores row">
             <section class="col-3">
                 <h3>Constitution</h3>
-                <input placeholder="Enter your Constitution" />
-                <p id="con-mod"></p>
+                <input class="scoreInput" placeholder="Enter your Constitution" />
+                <p class="mod"></p>
             </section>
             <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -110,11 +111,11 @@
                 </label><br>
             </section>
         </section>
-        <section class="row">
+        <section class="abilityScores row">
             <section class="col-3">
                 <h3>Dexterity</h3>
-                <input placeholder="Enter your Dexterity" />
-                <p id="dex-mod"></p>
+                <input class="scoreInput" placeholder="Enter your Dexterity" />
+                <p class="mod"></p>
             </section>
             <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -135,11 +136,11 @@
                 </label><br>
             </section>
         </section>
-        <section class="row">
+        <section class="abilityScores row">
             <section class="col-3">
                 <h3>Intelligence</h3>
-                <input placeholder="Enter your Intelligence" />
-                <p id="int-mod"></p>
+                <input class="scoreInput" placeholder="Enter your Intelligence" />
+                <p class="mod"></p>
             </section>
             <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -168,11 +169,11 @@
                 </label><br>
             </section>
         </section>
-        <section class="row">
+        <section class="abilityScores row">
             <section class="col-3">
                 <h3>Strength</h3>
-                <input placeholder="Enter your Strength" />
-                <p id="str-mod"></p>
+                <input class="scoreInput" placeholder="Enter your Strength" />
+                <p class="mod"></p>
             </section>
             <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -185,11 +186,11 @@
                 </label><br>
             </section>
         </section>
-        <section class="row">
+        <section class="abilityScores row">
             <section class="col-3">
                 <h3>Wisdom</h3>
-                <input placeholder="Enter your Wisdom" />
-                <p id="wis-mod"></p>
+                <input class="scoreInput" placeholder="Enter your Wisdom" />
+                <p class="mod"></p>
             </section>
             <section class="col-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -218,8 +219,10 @@
                 </label><br>
             </section>
         </section>
-        <button>Randomize</button>
+        <button id="randomAbilScores">Randomize</button>
+        <button id="saveAbilScores">Save Ability Scores</button>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
