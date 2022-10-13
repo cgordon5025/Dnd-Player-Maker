@@ -38,6 +38,31 @@
             <button id="randomizeBio">Randomize</button>
             <button id="saveBio">Save Info</button>
         </section>
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Your Stats</h5>
+                        <p>Place them where you see fit,</p>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialog" title="Dialog">
+            <p>
+                This is the default dialog which is useful for displaying information.
+                The dialog window can be moved, resized and closed with the 'x' icon.
+            </p>
+        </div>
         <section class="stats">
             <section>
                 <h3> Armor Class</h3>
@@ -220,12 +245,15 @@
                         </label><br>
                     </section>
                 </section>
-                <button id="randomAbilScores">Randomize</button>
+                <button id="rollAbilScores">Roll Ability Scores</button>
                 <button id="saveAbilScores">Save Ability Scores</button>
             </div>
         </div>
 
     </section>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

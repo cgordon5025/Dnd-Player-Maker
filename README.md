@@ -38,3 +38,5 @@ Single button to save it all
 multi page to first decide what name/race/class and stats, second page with that material and then ask if they want skills/spells/equipment 
 
 another page to store all of your characters?
+
+have a modal so that when I roll x amount of die, it shows me the results

@@ -8,3 +8,7 @@
     border-bottom: 5px solid black;
     margin-bottom: 5px;
 }
+
+.modal-body li {
+    list-style: none;
+}
