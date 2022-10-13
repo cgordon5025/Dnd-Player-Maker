@@ -13,8 +13,11 @@ var d20 = 20;
 var modalTextEl = $('.modal-body');
 saveAbilBtn.addEventListener('click', SaveAbilScore)
 // rollAbilBtn.addEventListener('click', showDice)
+var dialog = document.getElementById('dialog')
+console.log(dialog)
+// maybe vanilla would work better with bootstrap
 $(function () {
-    $('#dialog').dialog();
+    dialog.dialog();
 });
 rollAbilBtn.on('click', function () {
     diceModal.show()
