@@ -9,7 +9,7 @@ console.log(abilityScoreEl)
 var savedScores = []
 var mods = [];
 var d20Img = $('<img>');
-d20Img.src =''
+d20Img.src = ''
 
 var diceTextEl = $('#diceRollContainer');
 saveAbilBtn.addEventListener('click', SaveAbilScore)
@@ -20,12 +20,25 @@ console.log(dialog)
 rollAbilBtn.on('click', function () {
     diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
-        var oneRoll = rollDice(0, 20)
         var oneRollEl = $('<li></li>')
-        oneRollEl.text(oneRoll)
+        oneRollEl.text(rollDice(0, 20))
+
+        var rerollBtn = $('<button></button>')
+        rerollBtn.text('Redo roll Value')
+        rerollBtn.addClass('redoroll')
+        oneRollEl.append(rerollBtn)
         diceTextEl.append(oneRollEl)
+        console.log(redoRollEl)
     }
 });
+var redoRollEl = $('.redoroll')
+redoRollEl.on('click', "button", reRoll)
+function reRoll(event) {
+    console.log('clicked')
+    var rerollVal = event.target.previousElementSibling
+    console.log(rerollVal)
+    rerollVal.text(rollDice(0, 20))
+}
 function rollDice(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
