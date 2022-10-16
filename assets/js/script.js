@@ -48,17 +48,23 @@ function rollDice(min, max) {
 function SaveAbilScore() {
     for (let i = 0; i < abilityScoreEl.length; i++) {
         myScore = parseInt(abilityScoreEl[i].value)
+        //need additional conditionals for if the val is less than 10, it must be negative
         if (myScore % 2 === 0) {
-            mods.push(myScore / 2)
+            mods.push((10 - myScore) / 2)
         } else {
-            mods.push(((myScore - 1) / 2))
+            mods.push(((11 - myScore) / 2))
         }
         savedScores.push(myScore)
         modsEl[i].textContent = (mods[i])
+        //going in order Dex should be at index 2, we want to add to the initiative text as well
+        if (i == 2) {
+            console.log("in the conditional")
+            $('#initiative').text(mods[i])
+        }
     }
-    console.log(dexModEl.innerText)
-    console.log(dexModEl)
-    $('#initiative').text(dexModEl.textContent)
+    // console.log(dexModEl.innerText)
+    // console.log(dexModEl)
+    // $('#initiative').text(dexModEl.textContent)
 
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
 }
