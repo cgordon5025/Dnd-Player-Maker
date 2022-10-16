@@ -12,3 +12,8 @@
 .modal-body li {
     list-style: none;
 }
+
+#diceRollContainer {
+    height: 10vh;
+    border: 2px solid black;
+}

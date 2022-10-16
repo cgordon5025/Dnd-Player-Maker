@@ -4,29 +4,26 @@ var abilityScoreEl = $(".scoreInput");
 var modsEl = $(".mod")
 var rollAbilBtn = $('#rollAbilScores')
 // var rollAbilBtn = document.getElementById('rollAbilScores')
-var diceModal = $('#myModal')
 console.log(modsEl)
 console.log(abilityScoreEl)
 var savedScores = []
 var mods = [];
-var d20 = 20;
-var modalTextEl = $('.modal-body');
+var d20Img = $('<img>');
+d20Img.src =''
+
+var diceTextEl = $('#diceRollContainer');
 saveAbilBtn.addEventListener('click', SaveAbilScore)
 // rollAbilBtn.addEventListener('click', showDice)
 var dialog = document.getElementById('dialog')
 console.log(dialog)
 // maybe vanilla would work better with bootstrap
-$(function () {
-    dialog.dialog();
-});
 rollAbilBtn.on('click', function () {
-    diceModal.show()
-    modalTextEl.empty()
+    diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
         var oneRoll = rollDice(0, 20)
         var oneRollEl = $('<li></li>')
         oneRollEl.text(oneRoll)
-        modalTextEl.append(oneRollEl)
+        diceTextEl.append(oneRollEl)
     }
 });
 function rollDice(min, max) {
