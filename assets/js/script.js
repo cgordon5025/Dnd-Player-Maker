@@ -4,8 +4,8 @@ var abilityScoreEl = $(".scoreInput");
 var modsEl = $(".mod")
 var rollAbilBtn = $('#rollAbilScores')
 // var rollAbilBtn = document.getElementById('rollAbilScores')
-console.log(modsEl)
-console.log(abilityScoreEl)
+// console.log(modsEl)
+// console.log(abilityScoreEl)
 var savedScores = []
 var mods = [];
 var d20Img = $('<img>');
@@ -14,8 +14,7 @@ d20Img.src = ''
 var diceTextEl = $('#diceRollContainer');
 saveAbilBtn.addEventListener('click', SaveAbilScore)
 // rollAbilBtn.addEventListener('click', showDice)
-var dialog = document.getElementById('dialog')
-console.log(dialog)
+
 // maybe vanilla would work better with bootstrap
 rollAbilBtn.on('click', function () {
     diceTextEl.empty()
@@ -31,6 +30,7 @@ rollAbilBtn.on('click', function () {
         console.log(redoRollEl)
     }
 });
+var dexModEl = $('#dexMod')
 var redoRollEl = $('.redoroll')
 redoRollEl.on('click', "button", reRoll)
 function reRoll(event) {
@@ -44,46 +44,23 @@ function rollDice(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1))
 }
-$('.close').on('click', function () {
-    diceModal.hide()
-})
-// diceModal.draggable({
-//     //handle is where i grab to drag it
-//     handle: ".modal-header"
-// });
-// $('#rollAbilScores').on('shown.bs.modal', function () {
-//     $('#myInput').trigger('focus')
-// })
-function showDice() {
-    diceModal.modal()
-}
-// $(document).ready(function () {
-//     $('#rollAbilScores').click(function () {
-//         $("#myModal").modal();
-//     });
-// });
+
 function SaveAbilScore() {
     for (let i = 0; i < abilityScoreEl.length; i++) {
         myScore = parseInt(abilityScoreEl[i].value)
         if (myScore % 2 === 0) {
             mods.push(myScore / 2)
         } else {
-            mods.push((myScore / 2) - 1)
+            mods.push(((myScore - 1) / 2))
         }
         savedScores.push(myScore)
         modsEl[i].textContent = (mods[i])
     }
+    console.log(dexModEl.innerText)
+    console.log(dexModEl)
+    $('#initiative').text(dexModEl.textContent)
 
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
-}
-function abilityMod() {
-    for (let i = 0; i < abilityScoreEl.length; i++) {
-        if (abilityScoreEl[i].value % 2 === 0) {
-            mods.push(abilityScoreEl[i] % 2)
-        } else {
-            mods.push((abilityScoreEl[i] % 2) - 1)
-        }
-    }
 }
 // var DndURL = "https://www.dnd5eapi.co/api/"
 // async function DndAPI() {
