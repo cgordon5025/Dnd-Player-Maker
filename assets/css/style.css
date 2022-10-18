@@ -14,15 +14,6 @@
     border: 2px solid black;
 }
 
-tr img {
-    height: 7vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    margin: 0;
-}
 
 #testContainer {
     border: 2px solid black;
@@ -34,6 +25,24 @@ td {
     width: auto;
 }
 
+th {
+    margin: 10px;
+}
+
+thead tr {
+    display: flex;
+}
+
+tbody tr {
+    display: flex;
+    justify-content: space-around;
+}
+
+tr img {
+    justify-content: center;
+    height: 7vh;
+}
+
 td button,
 th p {
     position: absolute;
@@ -43,4 +52,3 @@ th p {
     width: fit-content;
     margin: 0;
 }
-

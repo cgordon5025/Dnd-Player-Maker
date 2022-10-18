@@ -20,9 +20,12 @@ rollAbilBtn.addEventListener('click', function () {
     for (let i = 0; i < 6; i++) {
         //this acutally 'rolls' the die and shows them to the user
         var oneRollEl = document.createElement('th')
+        oneRollEl.setAttribute('scope', 'col')
         //need to add attribute scope = 'col' to properly format the table
         // oneRollEl.attributes(scope = 'col')
         var diceRoll = document.createElement('p')
+        //set data attribute so that each button can refer to the specfic roll
+        // li.setAttribute("data-index", i);
         diceRoll.textContent = (rollDice(1, 20))
         var d20Img = document.createElement('img')
         d20Img.src = './assets/images/d20_base.png'
