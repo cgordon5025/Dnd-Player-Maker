@@ -19,6 +19,8 @@ rollAbilBtn.addEventListener('click', function () {
     // diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
         var oneRollEl = document.createElement('th')
+        //need to add attribute scope = 'col' to properly format the table
+        // oneRollEl.attributes(scope = 'col')
         var diceRoll = document.createElement('p')
         diceRoll.textContent = (rollDice(1, 20))
         var d20Img = document.createElement('img')
