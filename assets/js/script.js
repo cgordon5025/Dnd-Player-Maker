@@ -18,6 +18,7 @@ rollAbilBtn.addEventListener('click', function () {
     diceTextEl.innerHTML = ''
     // diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
+        //this acutally 'rolls' the die and shows them to the user
         var oneRollEl = document.createElement('th')
         //need to add attribute scope = 'col' to properly format the table
         // oneRollEl.attributes(scope = 'col')
@@ -30,14 +31,13 @@ rollAbilBtn.addEventListener('click', function () {
         oneRollEl.appendChild(diceRoll)
         diceTextEl.appendChild(oneRollEl)
 
+        //now lets add in the buttons
         var redoEl = document.createElement('td')
         var rerollBtn = document.createElement('button')
         rerollBtn.textContent = ('Reroll')
         rerollBtn.className = "redoroll"
-        // oneRollEl.appendChild(rerollBtn)
         redoEl.appendChild(rerollBtn)
         rerollContainer.appendChild(redoEl)
-        // console.log(redoRollEl)
     }
 });
 var dexModEl = $('#dexMod')
