@@ -9,24 +9,38 @@
     margin-bottom: 5px;
 }
 
-li {
-    list-style: none;
-}
-
+/* with table properties, this will likely change */
 #diceContainer {
-    height: 10vh;
     border: 2px solid black;
 }
 
-.centered {
+tr img {
+    height: 7vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: fit-content;
+    margin: 0;
 }
 
-span img {
-    height: 5vh;
+#testContainer {
+    border: 2px solid black;
+}
+
+th,
+td {
     position: relative;
-
+    width: auto;
 }
+
+td button,
+th p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    margin: 0;
+}
+

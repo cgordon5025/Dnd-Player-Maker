@@ -1,38 +1,51 @@
 // curl -X GET "https://www.dnd5eapi.co/api/ability-scores/cha" -H "Accept: application/json"
 var saveAbilBtn = document.getElementById('saveAbilScores')
-var abilityScoreEl = $(".scoreInput");
-var modsEl = $(".mod")
-var rollAbilBtn = $('#rollAbilScores')
-// var rollAbilBtn = document.getElementById('rollAbilScores')
-// console.log(modsEl)
+var abilityScoreEl = document.getElementById('scoreInput')
+var modsEl = document.getElementsByClassName('mod')
+var rollAbilBtn = document.getElementById('rollAbilScores')
+
+console.log(modsEl)
 // console.log(abilityScoreEl)
 var savedScores = []
 var mods = [];
-var d20Img = $('<img>');
-d20Img.src = ''
 
-var diceTextEl = $('#diceRollContainer');
+var diceTextEl = document.getElementById('diceRollContainer');
+var rerollContainer = document.getElementById('rerollButtonContainer')
 saveAbilBtn.addEventListener('click', SaveAbilScore)
-// rollAbilBtn.addEventListener('click', showDice)
 
 // maybe vanilla would work better with bootstrap
-rollAbilBtn.on('click', function () {
-    diceTextEl.empty()
+rollAbilBtn.addEventListener('click', function () {
+    diceTextEl.innerHTML = ''
+    // diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
-        var oneRollEl = $('<li></li>')
-        oneRollEl.text(rollDice(0, 20))
+        var oneRollEl = document.createElement('th')
+        var diceRoll = document.createElement('p')
+        diceRoll.textContent = (rollDice(1, 20))
+        var d20Img = document.createElement('img')
+        d20Img.src = './assets/images/d20_base.png'
+        console.log(d20Img)
+        oneRollEl.appendChild(d20Img)
+        oneRollEl.appendChild(diceRoll)
+        diceTextEl.appendChild(oneRollEl)
 
-        var rerollBtn = $('<button></button>')
-        rerollBtn.text('Redo roll Value')
-        rerollBtn.addClass('redoroll')
-        oneRollEl.append(rerollBtn)
-        diceTextEl.append(oneRollEl)
-        console.log(redoRollEl)
+        var redoEl = document.createElement('td')
+        var rerollBtn = document.createElement('button')
+        rerollBtn.textContent = ('Reroll')
+        rerollBtn.className = "redoroll"
+        // oneRollEl.appendChild(rerollBtn)
+        redoEl.appendChild(rerollBtn)
+        rerollContainer.appendChild(redoEl)
+        // console.log(redoRollEl)
     }
 });
 var dexModEl = $('#dexMod')
+// swap out jquery call
+//call upon first tr, then datanum have each button refer to specific data num to replace text
+var table = document.getElementById('testContainer')
+var tableOpt = $('<tr>')
 var redoRollEl = $('.redoroll')
-redoRollEl.on('click', "button", reRoll)
+// redoRollEl.addEventListener('click','button',reRoll)
+// redoRollEl.on('click', "button", reRoll)
 function reRoll(event) {
     console.log('clicked')
     var rerollVal = event.target.previousElementSibling
