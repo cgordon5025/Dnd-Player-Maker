@@ -16,6 +16,7 @@ saveAbilBtn.addEventListener('click', SaveAbilScore)
 // maybe vanilla would work better with bootstrap
 rollAbilBtn.addEventListener('click', function () {
     diceTextEl.innerHTML = ''
+    rerollContainer.innerHTML = ''
     // diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
         //this acutally 'rolls' the die and shows them to the user
@@ -55,7 +56,7 @@ function reRoll(event) {
     console.log('clicked')
     var rerollVal = event.target.previousElementSibling
     console.log(rerollVal)
-    rerollVal.text(rollDice(0, 20))
+    rerollVal.text(rollDice(1, 20))
 }
 function rollDice(min, max) {
     min = Math.ceil(min);

@@ -25,12 +25,10 @@ td {
     width: auto;
 }
 
-th {
-    margin: 10px;
-}
 
 thead tr {
     display: flex;
+    justify-content: space-evenly;
 }
 
 tbody tr {
