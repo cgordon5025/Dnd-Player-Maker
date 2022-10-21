@@ -94,12 +94,36 @@ function SaveAbilScore() {
 
 var raceInputEl = document.getElementById("raceInput");
 var classInputEl = document.getElementById("classInput");
-var alignmentInputEp = document.getElementById("alignmentInput");
+var alignmentInputEl = document.getElementById("alignmentInput");
 var backgroundInputEl = document.getElementById("backgroundInput")
+var randomizeBioBtn = document.getElementById('randomizeBio')
+
+randomizeBioBtn.addEventListener("click", function () {
+    if (!raceInputEl.value) {
+        raceInputEl.value = raceArray[Math.floor(Math.random() * raceArray.length)];
+    }
+    if (!classInputEl.value) {
+        classInputEl.value = classArray[Math.floor(Math.random() * classArray.length)];
+    }
+    if (!alignmentInputEl.value) {
+        alignmentInputEl.value = alignmentArray[Math.floor(Math.random() * alignmentArray.length)];
+    }
+})
+//the API
 var DndURL = "https://www.dnd5eapi.co/api/"
 const classArray = [];
 const raceArray = [];
+const alignmentArray = [];
+const backgroundArray = [];
 async function DndAPI() {
+    // let allData = fetch(`${DndURL}/backgrounds`)
+    //     .then(function (response) {
+    //         return response.json()
+    //     })
+    //     .then(function (data) {
+    //         console.log(data)
+    //         return data
+    //     })
     let classData = fetch(`${DndURL}/classes`)
         .then(function (response) {
             return response.json()
@@ -121,11 +145,33 @@ async function DndAPI() {
             }
             return data
         })
-    return classData, raceData
+    let alignmentData = fetch(`${DndURL}/alignments`)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.results.length; i++) {
+                alignmentArray.push(data.results[i].name)
+            }
+            return data
+        })
+    let backgroundData = fetch(`${DndURL}/backgrounds`)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.results.length; i++) {
+                backgroundArray.push(data.results[i].name)
+            }
+            return data
+        })
+    return classData, raceData, alignmentData, backgroundData
 }
 async function init() {
     await DndAPI()
     console.log(classArray)
     console.log(raceArray)
+    console.log(alignmentArray)
+    console.log(backgroundArray)
 }
 init()
