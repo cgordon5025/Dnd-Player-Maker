@@ -1,9 +1,11 @@
 // curl -X GET "https://www.dnd5eapi.co/api/ability-scores/cha" -H "Accept: application/json"
 var saveAbilBtn = document.getElementById('saveAbilScores')
-var abilityScoreEl = document.getElementById('scoreInput')
+var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var modsEl = document.getElementsByClassName('mod')
 var rollAbilBtn = document.getElementById('rollAbilScores')
-
+var bioEl = document.getElementsByClassName("info")
+console.log(bioEl)
+var initiativeEl = document.getElementById('initiative')
 // console.log(modsEl)
 // console.log(abilityScoreEl)
 var savedScores = []
@@ -82,14 +84,40 @@ function SaveAbilScore() {
         //going in order Dex should be at index 2, we want to add to the initiative text as well
         if (i == 2) {
             console.log("in the conditional")
-            $('#initiative').text(mods[i])
+            initiativeEl.textContent = (mods[i])
         }
     }
-    // console.log(dexModEl.innerText)
-    // console.log(dexModEl)
-    // $('#initiative').text(dexModEl.textContent)
 
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
+}
+bioArray = [];
+function saveBioInfo() {
+    for (let i = 0; i < bioEl.length; i++) {
+        bioArray.push(bioEl[i].value)
+    }
+    // console.log(bioArray)
+
+    localStorage.setItem("mySavedBio", JSON.stringify(bioArray))
+}
+
+if (!localStorage.getItem("mySavedBio")) {
+    bioArray = []
+} else {
+    bioArray = JSON.parse(localStorage.getItem("mySavedBio"))
+    console.log("else statement")
+    console.log(bioEl[0])
+    renderBio()
+    //lets render right away
+    //will change if we have multiple characters
+
+}
+function renderBio() {
+    console.log("rendering bio")
+    console.log(bioArray)
+    for (let i = 0; i < bioEl.lenght; i++) {
+        console.log("in for loop")
+        bioEl[i].value = bioArray[i]
+    }
 }
 
 var raceInputEl = document.getElementById("raceInput");
@@ -97,7 +125,8 @@ var classInputEl = document.getElementById("classInput");
 var alignmentInputEl = document.getElementById("alignmentInput");
 var backgroundInputEl = document.getElementById("backgroundInput")
 var randomizeBioBtn = document.getElementById('randomizeBio')
-
+var saveBioBtn = document.getElementById("saveBio")
+saveBioBtn.addEventListener("click", saveBioInfo)
 randomizeBioBtn.addEventListener("click", function () {
     if (!raceInputEl.value) {
         raceInputEl.value = raceArray[Math.floor(Math.random() * raceArray.length)];
