@@ -114,7 +114,7 @@ if (!localStorage.getItem("mySavedBio")) {
 function renderBio() {
     console.log("rendering bio")
     console.log(bioArray)
-    for (let i = 0; i < bioEl.lenght; i++) {
+    for (let i = 0; i < bioEl.length; i++) {
         console.log("in for loop")
         bioEl[i].value = bioArray[i]
     }
@@ -145,14 +145,14 @@ const raceArray = [];
 const alignmentArray = [];
 const backgroundArray = [];
 async function DndAPI() {
-    // let allData = fetch(`${DndURL}/backgrounds`)
-    //     .then(function (response) {
-    //         return response.json()
-    //     })
-    //     .then(function (data) {
-    //         console.log(data)
-    //         return data
-    //     })
+    let allData = fetch(`${DndURL}/backgrounds`)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+            return data
+        })
     let classData = fetch(`${DndURL}/classes`)
         .then(function (response) {
             return response.json()
