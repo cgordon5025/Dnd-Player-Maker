@@ -16,6 +16,7 @@
 
 
 #testContainer {
+    width: fit-content;
     border: 2px solid black;
 }
 
@@ -38,7 +39,7 @@ tbody tr {
 
 tr img {
     justify-content: center;
-    height: 7vh;
+    width: 60px
 }
 
 td button,

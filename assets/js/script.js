@@ -8,13 +8,15 @@ console.log(modsEl)
 // console.log(abilityScoreEl)
 var savedScores = []
 var mods = [];
-
+var rollContainer = document.getElementById('diceContainer')
 var diceTextEl = document.getElementById('diceRollContainer');
 var rerollContainer = document.getElementById('rerollButtonContainer')
 saveAbilBtn.addEventListener('click', SaveAbilScore)
-
+rollContainer.style.visibility = 'hidden'
 // maybe vanilla would work better with bootstrap
 rollAbilBtn.addEventListener('click', function () {
+    rollContainer.style.visibility = 'visible'
+
     diceTextEl.innerHTML = ''
     rerollContainer.innerHTML = ''
     // diceTextEl.empty()
