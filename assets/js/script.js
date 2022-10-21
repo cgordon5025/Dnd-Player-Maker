@@ -4,7 +4,7 @@ var abilityScoreEl = document.getElementById('scoreInput')
 var modsEl = document.getElementsByClassName('mod')
 var rollAbilBtn = document.getElementById('rollAbilScores')
 
-console.log(modsEl)
+// console.log(modsEl)
 // console.log(abilityScoreEl)
 var savedScores = []
 var mods = [];
@@ -15,10 +15,9 @@ saveAbilBtn.addEventListener('click', SaveAbilScore)
 rollContainer.style.visibility = 'hidden'
 // maybe vanilla would work better with bootstrap
 rollAbilBtn.addEventListener('click', function () {
-    rollContainer.style.visibility = 'visible'
-
-    diceTextEl.innerHTML = ''
-    rerollContainer.innerHTML = ''
+    rollContainer.style.visibility = 'visible';
+    diceTextEl.innerHTML = '';
+    rerollContainer.innerHTML = '';
     // diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
         //this acutally 'rolls' the die and shows them to the user
@@ -32,7 +31,7 @@ rollAbilBtn.addEventListener('click', function () {
         diceRoll.textContent = (rollDice(1, 20))
         var d20Img = document.createElement('img')
         d20Img.src = './assets/images/d20_base.png'
-        console.log(d20Img)
+        // console.log(d20Img)
         oneRollEl.appendChild(d20Img)
         oneRollEl.appendChild(diceRoll)
         diceTextEl.appendChild(oneRollEl)
@@ -44,13 +43,16 @@ rollAbilBtn.addEventListener('click', function () {
         rerollBtn.className = "redoroll"
         redoEl.appendChild(rerollBtn)
         rerollContainer.appendChild(redoEl)
+        console.log(test)
+
     }
 });
-var dexModEl = $('#dexMod')
+var dexModEl = document.getElementById('dexMod')
 // swap out jquery call
 //call upon first tr, then datanum have each button refer to specific data num to replace text
-var table = document.getElementById('testContainer')
-var tableOpt = $('<tr>')
+// var table = document.getElementById('testContainer')
+// var tableOpt = $('<tr>')
+var test = document.getElementById("rerollButtonContainer").querySelectorAll(".redoroll")
 var redoRollEl = $('.redoroll')
 // redoRollEl.addEventListener('click','button',reRoll)
 // redoRollEl.on('click', "button", reRoll)
@@ -71,9 +73,9 @@ function SaveAbilScore() {
         myScore = parseInt(abilityScoreEl[i].value)
         //need additional conditionals for if the val is less than 10, it must be negative
         if (myScore % 2 === 0) {
-            mods.push((10 - myScore) / 2)
+            mods.push((myScore - 10) / 2)
         } else {
-            mods.push(((11 - myScore) / 2))
+            mods.push(((myScore - 11) / 2))
         }
         savedScores.push(myScore)
         modsEl[i].textContent = (mods[i])
@@ -89,19 +91,41 @@ function SaveAbilScore() {
 
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
 }
-// var DndURL = "https://www.dnd5eapi.co/api/"
-// async function DndAPI() {
-//     let myData = fetch(DndURL)
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (data) {
-//             console.log(data)
-//             return data
-//         })
-//     return myData
-// }
-// function init() {
-//     DndAPI().then(console.log(data))
-// }
-// init()
+
+var raceInputEl = document.getElementById("raceInput");
+var classInputEl = document.getElementById("classInput");
+var alignmentInputEp = document.getElementById("alignmentInput");
+var backgroundInputEl = document.getElementById("backgroundInput")
+var DndURL = "https://www.dnd5eapi.co/api/"
+const classArray = [];
+const raceArray = [];
+async function DndAPI() {
+    let classData = fetch(`${DndURL}/classes`)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.results.length; i++) {
+                classArray.push(data.results[i].name)
+            }
+            // console.log(data)
+            return data
+        })
+    let raceData = fetch(`${DndURL}/races`)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.results.length; i++) {
+                raceArray.push(data.results[i].name)
+            }
+            return data
+        })
+    return classData, raceData
+}
+async function init() {
+    await DndAPI()
+    console.log(classArray)
+    console.log(raceArray)
+}
+init()

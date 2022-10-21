@@ -20,3 +20,5 @@ rollAbilBtn.on('click', function () {
         console.log(redoRollEl)
     }
 });
+
+var dexModEl = $('#dexMod')
