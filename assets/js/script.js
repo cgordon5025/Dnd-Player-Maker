@@ -1,4 +1,7 @@
 // curl -X GET "https://www.dnd5eapi.co/api/ability-scores/cha" -H "Accept: application/json"
+
+
+//save of all these in database if/when i want to convert and adapt this
 var saveAbilBtn = document.getElementById('saveAbilScores')
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var modsEl = document.getElementsByClassName('mod')
@@ -20,7 +23,6 @@ rollAbilBtn.addEventListener('click', function () {
     rollContainer.style.visibility = 'visible';
     diceTextEl.innerHTML = '';
     rerollContainer.innerHTML = '';
-    // diceTextEl.empty()
     for (let i = 0; i < 6; i++) {
         //this acutally 'rolls' the die and shows them to the user
         var oneRollEl = document.createElement('th')
@@ -67,7 +69,7 @@ function reRoll(event) {
 function rollDice(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1))
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function SaveAbilScore() {
