@@ -57,6 +57,7 @@ var dexModEl = document.getElementById('dexMod')
 // var table = document.getElementById('testContainer')
 // var tableOpt = $('<tr>')
 var test = document.getElementById("rerollButtonContainer").querySelectorAll(".redoroll")
+//note to self fix the reroll, need to be able to reference the dice which are not siblings to the buttons anymore
 var redoRollEl = $('.redoroll')
 // redoRollEl.addEventListener('click','button',reRoll)
 // redoRollEl.on('click', "button", reRoll)
