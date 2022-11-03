@@ -1,6 +1,4 @@
 // curl -X GET "https://www.dnd5eapi.co/api/ability-scores/cha" -H "Accept: application/json"
-
-
 //save of all these in database if/when i want to convert and adapt this
 var saveAbilBtn = document.getElementById('saveAbilScores')
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
@@ -141,12 +139,14 @@ randomizeBioBtn.addEventListener("click", function () {
         alignmentInputEl.value = alignmentArray[Math.floor(Math.random() * alignmentArray.length)];
     }
 })
+
+
 //the API
 var DndURL = "https://www.dnd5eapi.co/api/"
 const classArray = [];
 const raceArray = [];
 const alignmentArray = [];
-const backgroundArray = [];
+const backgroundArray = ['Acolyte', 'Charlatan', 'Criminal/Spy', 'Entertainer', 'Folk Hero', 'Gladiator', 'Guild Artisan/Merchant', 'Hermit', 'Knight', 'Noble', 'Outlander', 'Pirate', 'Sage', 'Sailor', 'Soldier', 'Urchin'];
 async function DndAPI() {
     let allData = fetch(`${DndURL}/backgrounds`)
         .then(function (response) {
