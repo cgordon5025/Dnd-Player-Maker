@@ -1,22 +1,49 @@
 // curl -X GET "https://www.dnd5eapi.co/api/ability-scores/cha" -H "Accept: application/json"
 //save of all these in database if/when i want to convert and adapt this
+//button elements 
 var saveAbilBtn = document.getElementById('saveAbilScores')
-var abilityScoreEl = document.getElementsByClassName('scoreInput')
-var modsEl = document.getElementsByClassName('mod')
 var rollAbilBtn = document.getElementById('rollAbilScores')
-var bioEl = document.getElementsByClassName("info")
-console.log(bioEl)
-var initiativeEl = document.getElementById('initiative')
-// console.log(modsEl)
-// console.log(abilityScoreEl)
-var savedScores = []
-var mods = [];
+var randomizeBioBtn = document.getElementById('randomizeBio')
+var saveBioBtn = document.getElementById("saveBio")
+var saveProfBtn = document.getElementById('saveProf')
+
+//containers
+var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var rollContainer = document.getElementById('diceContainer')
 var diceTextEl = document.getElementById('diceRollContainer');
 var rerollContainer = document.getElementById('rerollButtonContainer')
-saveAbilBtn.addEventListener('click', SaveAbilScore)
+//there should be 24 of these
+var profEl = document.querySelectorAll('.proficiency')
+// .querySelector('input')
+var profBonusEl = document.querySelectorAll('.profBonus')
+
+// profBonusEl[1].textContent = "hello"
+
+console.log(profBonusEl)
+// console.log(profEl)
+//input variables
+var raceInputEl = document.getElementById("raceInput");
+var classInputEl = document.getElementById("classInput");
+var alignmentInputEl = document.getElementById("alignmentInput");
+var backgroundInputEl = document.getElementById("backgroundInput")
+
+//text elements
+var modsEl = document.getElementsByClassName('mod')
+var bioEl = document.getElementsByClassName("info")
+var initiativeEl = document.getElementById('initiative')
+
+//empty arrays for later
+var savedScores = []
+var mods = [];
+var bioArray = [];
+var prevBio = [];
+
+//etc
 rollContainer.style.visibility = 'hidden'
-// maybe vanilla would work better with bootstrap
+
+//event listeners
+saveBioBtn.addEventListener("click", saveBioInfo)
+saveAbilBtn.addEventListener('click', SaveAbilScore)
 rollAbilBtn.addEventListener('click', function () {
     rollContainer.style.visibility = 'visible';
     diceTextEl.innerHTML = '';
@@ -58,15 +85,18 @@ rollAbilBtn.addEventListener('click', function () {
 
     }
 });
-var dexModEl = document.getElementById('dexMod')
-var redoRollEl = $('.redoroll')
+saveProfBtn.addEventListener('click', function () {
+    for (let i = 0; i < profEl.length; i++) {
+        if (profEl[i].checked == true) {
+            console.log("button is clicked and boolean is true")
+            profBonusEl[i].textContent = "hello"
+        }else{
+            console.log("this button was not checked")
+        }
 
-// swap out jquery call
-//call upon first tr, then datanum have each button refer to specific data num to replace text
+    }
+})
 
-//note to self fix the reroll, need to be able to reference the dice which are not siblings to the buttons anymore
-// redoRollEl.addEventListener('click','button',reRoll)
-// redoRollEl.on('click', "button", reRoll)
 function redoRoll(event) {
     //need to do a find where the button data num can equal the text rollnum data attribute, but how do?
     // var btn1 = document..dataset.rollnum
@@ -113,8 +143,7 @@ function SaveAbilScore() {
 
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
 }
-bioArray = [];
-prevBio = [];
+
 //having a way to clear the bio would be nice
 function saveBioInfo() {
     for (let i = 0; i < bioEl.length; i++) {
@@ -145,13 +174,7 @@ function renderBio() {
     }
 }
 
-var raceInputEl = document.getElementById("raceInput");
-var classInputEl = document.getElementById("classInput");
-var alignmentInputEl = document.getElementById("alignmentInput");
-var backgroundInputEl = document.getElementById("backgroundInput")
-var randomizeBioBtn = document.getElementById('randomizeBio')
-var saveBioBtn = document.getElementById("saveBio")
-saveBioBtn.addEventListener("click", saveBioInfo)
+
 randomizeBioBtn.addEventListener("click", function () {
     if (!raceInputEl.value) {
         raceInputEl.value = raceArray[Math.floor(Math.random() * raceArray.length)];
