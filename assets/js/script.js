@@ -46,7 +46,7 @@ rollAbilBtn.addEventListener('click', function () {
         //set up attributes and class for each reroll button
         rerollBtn.textContent = ('Reroll')
         rerollBtn.className = "redoroll"
-        rerollBtn.setAttribute('data-rerollbtn', (i + 1))
+        rerollBtn.setAttribute('data-rerollbtn', (i))
         //now lets put them all togehter
         redoEl.appendChild(rerollBtn)
         rerollContainer.appendChild(redoEl)
@@ -74,16 +74,18 @@ function redoRoll(event) {
 
     if (event.target.matches('button')) {
         const myRerollBtn = event.target.dataset.rerollbtn
-        const rerollEl = document.querySelector(`#diceRollContainer :nth-child(${myRerollBtn})`)
+        console.log(myRerollBtn)
+
+        const rerollEl = document.querySelector(`#diceRollContainer`).children.item(myRerollBtn)
+
         rerollEl.children[1].textContent = (rollDice(1, 20))
-        // console.log(myRerollBtn)
+        // console.log(rerollEl)
         // console.log(rerollEl.children[1])
         // console.log(event.target)
         //for loop to find mathcing rollnum
         //if on matching rollnum
-        event.target.style.display ='none'
+        event.target.style.display = 'none'
     }
-    console.log('clicked')
 }
 function rollDice(min, max) {
     min = Math.ceil(min);
