@@ -31,8 +31,10 @@ rollAbilBtn.addEventListener('click', function () {
         //set data attribute so that each button can refer to the specfic roll
         // li.setAttribute("data-index", i);
         diceRoll.textContent = (rollDice(1, 20))
+        diceRoll.setAttribute('data-rollnum', i)
         var d20Img = document.createElement('img')
         d20Img.src = './assets/images/d20_base.png'
+
         // console.log(d20Img)
         oneRollEl.appendChild(d20Img)
         oneRollEl.appendChild(diceRoll)
@@ -41,29 +43,47 @@ rollAbilBtn.addEventListener('click', function () {
         //now lets add in the buttons
         var redoEl = document.createElement('td')
         var rerollBtn = document.createElement('button')
+        //set up attributes and class for each reroll button
         rerollBtn.textContent = ('Reroll')
         rerollBtn.className = "redoroll"
+        rerollBtn.setAttribute('data-rerollbtn', (i + 1))
+        //now lets put them all togehter
         redoEl.appendChild(rerollBtn)
         rerollContainer.appendChild(redoEl)
-        console.log(test)
+        // console.log(rerollBtn)
+        document.querySelector('.table').addEventListener('click', redoRoll)
+
+        // rerollBtn.addEventListener('click', redoRoll)
+
 
     }
 });
 var dexModEl = document.getElementById('dexMod')
+var redoRollEl = $('.redoroll')
+
 // swap out jquery call
 //call upon first tr, then datanum have each button refer to specific data num to replace text
-// var table = document.getElementById('testContainer')
-// var tableOpt = $('<tr>')
-var test = document.getElementById("rerollButtonContainer").querySelectorAll(".redoroll")
+
 //note to self fix the reroll, need to be able to reference the dice which are not siblings to the buttons anymore
-var redoRollEl = $('.redoroll')
 // redoRollEl.addEventListener('click','button',reRoll)
 // redoRollEl.on('click', "button", reRoll)
-function reRoll(event) {
+function redoRoll(event) {
+    //need to do a find where the button data num can equal the text rollnum data attribute, but how do?
+    // var btn1 = document..dataset.rollnum
+    // console.log(event.target)
+
+    if (event.target.matches('button')) {
+        const myRerollBtn = event.target.dataset.rerollbtn
+        const rerollEl = document.querySelector(`#diceRollContainer :nth-child(${myRerollBtn})`)
+        rerollEl.children[1].textContent = (rollDice(1, 20))
+        // console.log(myRerollBtn)
+        // console.log(rerollEl.children[1])
+        // console.log(event.target)
+        //for loop to find mathcing rollnum
+        //if on matching rollnum
+        event.target.style.display ='none'
+    }
     console.log('clicked')
-    var rerollVal = event.target.previousElementSibling
-    console.log(rerollVal)
-    rerollVal.text(rollDice(1, 20))
 }
 function rollDice(min, max) {
     min = Math.ceil(min);
@@ -92,6 +112,8 @@ function SaveAbilScore() {
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
 }
 bioArray = [];
+prevBio = [];
+//having a way to clear the bio would be nice
 function saveBioInfo() {
     for (let i = 0; i < bioEl.length; i++) {
         bioArray.push(bioEl[i].value)
@@ -104,9 +126,9 @@ function saveBioInfo() {
 if (!localStorage.getItem("mySavedBio")) {
     bioArray = []
 } else {
-    bioArray = JSON.parse(localStorage.getItem("mySavedBio"))
+    prevBio = JSON.parse(localStorage.getItem("mySavedBio"))
     console.log("else statement")
-    console.log(bioEl[0])
+    console.log(prevBio)
     renderBio()
     //lets render right away
     //will change if we have multiple characters
@@ -115,9 +137,9 @@ if (!localStorage.getItem("mySavedBio")) {
 function renderBio() {
     console.log("rendering bio")
     console.log(bioArray)
-    for (let i = 0; i < bioEl.length; i++) {
+    for (let i = 0; i < prevBio.length; i++) {
         console.log("in for loop")
-        bioEl[i].value = bioArray[i]
+        bioEl[i].value = prevBio[i]
     }
 }
 
@@ -138,6 +160,9 @@ randomizeBioBtn.addEventListener("click", function () {
     if (!alignmentInputEl.value) {
         alignmentInputEl.value = alignmentArray[Math.floor(Math.random() * alignmentArray.length)];
     }
+    if (!backgroundInputEl.value) {
+        backgroundInputEl.value = backgroundArray[Math.floor(Math.random() * backgroundArray.length)];
+    }
 })
 
 
@@ -148,14 +173,14 @@ const raceArray = [];
 const alignmentArray = [];
 const backgroundArray = ['Acolyte', 'Charlatan', 'Criminal/Spy', 'Entertainer', 'Folk Hero', 'Gladiator', 'Guild Artisan/Merchant', 'Hermit', 'Knight', 'Noble', 'Outlander', 'Pirate', 'Sage', 'Sailor', 'Soldier', 'Urchin'];
 async function DndAPI() {
-    let allData = fetch(`${DndURL}/backgrounds`)
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            console.log(data)
-            return data
-        })
+    // let allData = fetch(`${DndURL}/backgrounds`)
+    //     .then(function (response) {
+    //         return response.json()
+    //     })
+    //     .then(function (data) {
+    //         console.log(data)
+    //         return data
+    //     })
     let classData = fetch(`${DndURL}/classes`)
         .then(function (response) {
             return response.json()
@@ -201,9 +226,9 @@ async function DndAPI() {
 }
 async function init() {
     await DndAPI()
-    console.log(classArray)
-    console.log(raceArray)
-    console.log(alignmentArray)
-    console.log(backgroundArray)
+    // console.log(classArray)
+    // console.log(raceArray)
+    // console.log(alignmentArray)
+    // console.log(backgroundArray)
 }
 init()
