@@ -85,14 +85,32 @@ rollAbilBtn.addEventListener('click', function () {
 
     }
 });
+console.log("testing",profEl.length)
 saveProfBtn.addEventListener('click', function () {
     for (let i = 0; i < profEl.length; i++) {
-        if (profEl[i].checked == true) {
-            console.log("button is clicked and boolean is true")
-            profBonusEl[i].textContent = "hello"
-        }else{
-            console.log("this button was not checked")
+        //this loop is for the charisma prof
+        if (i < 5) {
+            if (profEl[i].checked == true) {
+                console.log("prof is charisma")
+            }
+            //this is for constitution
+        } else if (i = 5) {
+            if (profEl[i].checked == true) {
+                console.log("prof is constitution")
+            }
+        } else if (i > 5 && i < 9) {
+            if (profEl[i].checked == true) {
+                console.log("prof is dex")
+            }
+        } else {
+            console.log("done")
         }
+        // if (profEl[i].checked == true) {
+        //     console.log("button is clicked and boolean is true")
+        //     profBonusEl[i].textContent = "hello"
+        // } else {
+        //     console.log("this button was not checked")
+        // }
 
     }
 })
@@ -250,7 +268,7 @@ async function DndAPI() {
     return classData, raceData, alignmentData, backgroundData
 }
 async function init() {
-    await DndAPI()
+    // await DndAPI()
     // console.log(classArray)
     // console.log(raceArray)
     // console.log(alignmentArray)
