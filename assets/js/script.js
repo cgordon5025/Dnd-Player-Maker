@@ -85,8 +85,9 @@ rollAbilBtn.addEventListener('click', function () {
 
     }
 });
-console.log("testing",profEl.length)
+console.log("testing", profEl.length)
 saveProfBtn.addEventListener('click', function () {
+    //this should go for the length of 24
     for (let i = 0; i < profEl.length; i++) {
         //this loop is for the charisma prof
         if (i < 5) {
@@ -94,14 +95,14 @@ saveProfBtn.addEventListener('click', function () {
                 console.log("prof is charisma")
             }
             //this is for constitution
-        } else if (i = 5) {
-            if (profEl[i].checked == true) {
-                console.log("prof is constitution")
-            }
-        } else if (i > 5 && i < 9) {
-            if (profEl[i].checked == true) {
-                console.log("prof is dex")
-            }
+        } else if (i == 5 && profEl[i].checked == true) {
+
+            console.log("prof is constitution")
+
+            // } else if (i > 5 && i < 9) {
+            //     if (profEl[i].checked == true) {
+            //         console.log("prof is dex")
+            //     }
         } else {
             console.log("done")
         }
