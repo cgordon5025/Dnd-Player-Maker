@@ -17,7 +17,6 @@ var profEl = document.querySelectorAll('.proficiency')
 // .querySelector('input')
 var profBonusEl = document.querySelectorAll('.profBonus')
 var profBonusVal = parseInt(document.getElementById("profValue").innerHTML)
-
 // profBonusEl[1].textContent = "hello"
 
 console.log(profBonusEl)
@@ -91,24 +90,27 @@ rollAbilBtn.addEventListener('click', function () {
 console.log("testing", profEl.length)
 saveProfBtn.addEventListener('click', function () {
     //this should go for the length of 24
+    profArray = [];
+    profModArray = [];
     for (let i = 0; i < profEl.length; i++) {
         profArray.push(profEl[i].checked)
         //this loop is for the charisma prof
         if (i < 5) {
             console.log("prof is charisma")
             if (profEl[i].checked == true) {
+                console.log(modsEl[0].textContent)
                 let profBonus = profBonusVal + parseInt(modsEl[0].textContent)
-
+                profModArray.push(profBonus)
                 if (profBonus > 0) {
                     profBonusEl[i].textContent = `+ ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-                } else {
-                    profBonusEl[i].textContent = `- ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
 
+                } else {
+                    profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                profBonusEl[i].textContent = `+ ${profBonusVal}`
+                let profBonus = profBonusVal
+                profBonusEl[i].textContent = `+ ${profBonus}`
+                profModArray.push(profBonus)
             }
 
             //this is for constitution
@@ -116,83 +118,78 @@ saveProfBtn.addEventListener('click', function () {
             console.log("prof is constitution")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[1].textContent)
+                profModArray.push(profBonus)
                 if (profBonus > 0) {
                     profBonusEl[i].textContent = `+ ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
                 } else {
-                    profBonusEl[i].textContent = `- ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
+                    profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                profBonusEl[i].textContent = `+ ${profBonusVal}`
+                let profBonus = profBonusVal
+                profBonusEl[i].textContent = `+ ${profBonus}`
+                profModArray.push(profBonus)
             }
 
         } else if (i > 5 && i <= 9) {
             console.log("prof is dex")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[2].textContent)
+                profModArray.push(profBonus)
                 if (profBonus > 0) {
                     profBonusEl[i].textContent = `+ ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
                 } else {
-                    profBonusEl[i].textContent = `- ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
+                    profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                profBonusEl[i].textContent = `+ ${profBonusVal}`
+                let profBonus = profBonusVal
+                profBonusEl[i].textContent = `+ ${profBonus}`
+                profModArray.push(profBonus)
             }
 
         } else if (i > 9 && i <= 15) {
             console.log("prof is intelligence")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[3].textContent)
+                profModArray.push(profBonus)
                 if (profBonus > 0) {
                     profBonusEl[i].textContent = `+ ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
                 } else {
-                    profBonusEl[i].textContent = `- ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
+                    profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                profBonusEl[i].textContent = `+ ${profBonusVal}`
+                let profBonus = profBonusVal
+                profBonusEl[i].textContent = `+ ${profBonus}`
+                profModArray.push(profBonus)
             }
         } else if (i > 15 && i <= 17) {
             console.log("prof is str")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[4].textContent)
+                profModArray.push(profBonus)
                 if (profBonus > 0) {
                     profBonusEl[i].textContent = `+ ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
                 } else {
-                    profBonusEl[i].textContent = `- ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
+                    profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                profBonusEl[i].textContent = `+ ${profBonusVal}`
+                let profBonus = profBonusVal
+                profBonusEl[i].textContent = `+ ${profBonus}`
+                profModArray.push(profBonus)
             }
         } else if (i > 17) {
             console.log("prof is wis")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[5].textContent)
+                profModArray.push(profBonus)
                 if (profBonus > 0) {
                     profBonusEl[i].textContent = `+ ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
                 } else {
-                    profBonusEl[i].textContent = `- ${profBonus}`
-                    profModArray.push(profBonusEl[i].textContent)
-
+                    profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                profBonusEl[i].textContent = `+ ${profBonusVal}`
+                let profBonus = profBonusVal
+                profBonusEl[i].textContent = `+ ${profBonus}`
+                profModArray.push(profBonus)
             }
         }
         else {
@@ -205,8 +202,10 @@ saveProfBtn.addEventListener('click', function () {
         //     console.log("this button was not checked")
         // }
     }
-    console.log(profArray)
-    console.log(profModArray)
+    // console.log(profArray)
+    // console.log(profModArray)
+    localStorage.setItem("mySavedProf", JSON.stringify(profArray))
+    localStorage.setItem("mySavedProfMods", JSON.stringify(profModArray))
 })
 
 function redoRoll(event) {
@@ -286,7 +285,18 @@ function renderScores() {
 }
 
 function renderProfs() {
+    console.log(prevProf)
+    console.log(prevProfMods)
+    for (let i = 0; i < profEl.length; i++) {
+        console.log(prevProfMods[i])
+        profEl[i].value = prevProf[i]
+        if (prevProfMods[i] > 0) {
+            profBonusEl[i].textContent = `+ ${prevProfMods[i]}`
+        } else {
+            profBonusEl[i].textContent = `${prevProfMods[i]}`
 
+        }
+    }
 }
 
 randomizeBioBtn.addEventListener("click", function () {
@@ -384,6 +394,14 @@ async function init() {
         prevScores = JSON.parse(localStorage.getItem("mySavedScore"))
         prevMods = JSON.parse(localStorage.getItem("mySavedMods"))
         renderScores()
+    }
+    if (!localStorage.getItem("mySavedProf") && !localStorage.getItem("mySavedProfMods")) {
+        prevProf = [];
+        prevProfMods = [];
+    } else {
+        prevProf = JSON.parse(localStorage.getItem("mySavedProf"))
+        prevProfMods = JSON.parse(localStorage.getItem("mySavedProfMods"))
+        renderProfs()
     }
 }
 init()
