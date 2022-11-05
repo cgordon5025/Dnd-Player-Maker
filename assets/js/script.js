@@ -16,6 +16,7 @@ var rerollContainer = document.getElementById('rerollButtonContainer')
 var profEl = document.querySelectorAll('.proficiency')
 // .querySelector('input')
 var profBonusEl = document.querySelectorAll('.profBonus')
+var profBonusVal = parseInt(document.getElementById("profValue").innerHTML)
 
 // profBonusEl[1].textContent = "hello"
 
@@ -37,6 +38,8 @@ var savedScores = []
 var mods = [];
 var bioArray = [];
 var prevBio = [];
+var profArray = [];
+var profModArray = []
 
 //etc
 rollContainer.style.visibility = 'hidden'
@@ -89,21 +92,110 @@ console.log("testing", profEl.length)
 saveProfBtn.addEventListener('click', function () {
     //this should go for the length of 24
     for (let i = 0; i < profEl.length; i++) {
+        profArray.push(profEl[i].checked)
         //this loop is for the charisma prof
         if (i < 5) {
+            console.log("prof is charisma")
             if (profEl[i].checked == true) {
-                console.log("prof is charisma")
+                let profBonus = profBonusVal + parseInt(modsEl[0].textContent)
+
+                if (profBonus > 0) {
+                    profBonusEl[i].textContent = `+ ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+                } else {
+                    profBonusEl[i].textContent = `- ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                }
+            } else {
+                profBonusEl[i].textContent = `+ ${profBonusVal}`
             }
+
             //this is for constitution
-        } else if (i == 5 && profEl[i].checked == true) {
-
+        } else if (i == 5) {
             console.log("prof is constitution")
+            if (profEl[i].checked == true) {
+                let profBonus = profBonusVal + parseInt(modsEl[1].textContent)
+                if (profBonus > 0) {
+                    profBonusEl[i].textContent = `+ ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
 
-            // } else if (i > 5 && i < 9) {
-            //     if (profEl[i].checked == true) {
-            //         console.log("prof is dex")
-            //     }
-        } else {
+                } else {
+                    profBonusEl[i].textContent = `- ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                }
+            } else {
+                profBonusEl[i].textContent = `+ ${profBonusVal}`
+            }
+
+        } else if (i > 5 && i <= 9) {
+            console.log("prof is dex")
+            if (profEl[i].checked == true) {
+                let profBonus = profBonusVal + parseInt(modsEl[2].textContent)
+                if (profBonus > 0) {
+                    profBonusEl[i].textContent = `+ ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                } else {
+                    profBonusEl[i].textContent = `- ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                }
+            } else {
+                profBonusEl[i].textContent = `+ ${profBonusVal}`
+            }
+
+        } else if (i > 9 && i <= 15) {
+            console.log("prof is intelligence")
+            if (profEl[i].checked == true) {
+                let profBonus = profBonusVal + parseInt(modsEl[3].textContent)
+                if (profBonus > 0) {
+                    profBonusEl[i].textContent = `+ ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                } else {
+                    profBonusEl[i].textContent = `- ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                }
+            } else {
+                profBonusEl[i].textContent = `+ ${profBonusVal}`
+            }
+        } else if (i > 15 && i <= 17) {
+            console.log("prof is str")
+            if (profEl[i].checked == true) {
+                let profBonus = profBonusVal + parseInt(modsEl[4].textContent)
+                if (profBonus > 0) {
+                    profBonusEl[i].textContent = `+ ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                } else {
+                    profBonusEl[i].textContent = `- ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                }
+            } else {
+                profBonusEl[i].textContent = `+ ${profBonusVal}`
+            }
+        } else if (i > 17) {
+            console.log("prof is wis")
+            if (profEl[i].checked == true) {
+                let profBonus = profBonusVal + parseInt(modsEl[5].textContent)
+                if (profBonus > 0) {
+                    profBonusEl[i].textContent = `+ ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                } else {
+                    profBonusEl[i].textContent = `- ${profBonus}`
+                    profModArray.push(profBonusEl[i].textContent)
+
+                }
+            } else {
+                profBonusEl[i].textContent = `+ ${profBonusVal}`
+            }
+        }
+        else {
             console.log("done")
         }
         // if (profEl[i].checked == true) {
@@ -112,8 +204,9 @@ saveProfBtn.addEventListener('click', function () {
         // } else {
         //     console.log("this button was not checked")
         // }
-
     }
+    console.log(profArray)
+    console.log(profModArray)
 })
 
 function redoRoll(event) {
@@ -159,7 +252,7 @@ function SaveAbilScore() {
             initiativeEl.textContent = (mods[i])
         }
     }
-
+    localStorage.setItem("mySavedMods", JSON.stringify(mods))
     localStorage.setItem("mySavedScore", JSON.stringify(savedScores))
 }
 
@@ -173,17 +266,7 @@ function saveBioInfo() {
     localStorage.setItem("mySavedBio", JSON.stringify(bioArray))
 }
 
-if (!localStorage.getItem("mySavedBio")) {
-    bioArray = []
-} else {
-    prevBio = JSON.parse(localStorage.getItem("mySavedBio"))
-    console.log("else statement")
-    console.log(prevBio)
-    renderBio()
-    //lets render right away
-    //will change if we have multiple characters
 
-}
 function renderBio() {
     console.log("rendering bio")
     console.log(bioArray)
@@ -192,7 +275,19 @@ function renderBio() {
         bioEl[i].value = prevBio[i]
     }
 }
+function renderScores() {
+    console.log(modsEl)
+    console.log(prevScores)
 
+    for (let i = 0; i < modsEl.length; i++) {
+        abilityScoreEl[i].value = prevScores[i]
+        modsEl[i].textContent = prevMods[i]
+    }
+}
+
+function renderProfs() {
+
+}
 
 randomizeBioBtn.addEventListener("click", function () {
     if (!raceInputEl.value) {
@@ -274,5 +369,21 @@ async function init() {
     // console.log(raceArray)
     // console.log(alignmentArray)
     // console.log(backgroundArray)
+    if (!localStorage.getItem("mySavedBio")) {
+        bioArray = []
+    } else {
+        prevBio = JSON.parse(localStorage.getItem("mySavedBio"))
+        console.log("else statement")
+        console.log(prevBio)
+        renderBio()
+    }
+    if (!localStorage.getItem("mySavedScore") && !localStorage.getItem("mySavedMods")) {
+        prevScores = [];
+        prevMods = [];
+    } else {
+        prevScores = JSON.parse(localStorage.getItem("mySavedScore"))
+        prevMods = JSON.parse(localStorage.getItem("mySavedMods"))
+        renderScores()
+    }
 }
 init()
