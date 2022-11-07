@@ -1,6 +1,11 @@
 body {
-    /* font-family: "Shalimar"; */
-    
+    font-family: "Shalimar";
+    background-color: #81d1f0;
+
+}
+
+.container {
+    background-color: #e2d9fa;
 }
 
 .infoContainer,
@@ -31,6 +36,11 @@ td {
     width: auto;
 }
 
+/* remore the formatting */
+.table th,
+.table td {
+    border: 1px !important;
+}
 
 thead tr {
     display: flex;
@@ -55,4 +65,8 @@ th p {
     transform: translate(-50%, -50%);
     width: fit-content;
     margin: 0;
+}
+/* need way to shrink the text inputs for spacing */
+.weaponInputs input {
+    width: 10%;
 }
