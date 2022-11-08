@@ -6,7 +6,7 @@ var rollAbilBtn = document.getElementById('rollAbilScores')
 var randomizeBioBtn = document.getElementById('randomizeBio')
 var saveBioBtn = document.getElementById("saveBio")
 var saveProfBtn = document.getElementById('saveProf')
-
+var HPBtn = document.getElementById('HPBtn')
 //containers
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var rollContainer = document.getElementById('diceContainer')
@@ -26,11 +26,12 @@ var raceInputEl = document.getElementById("raceInput");
 var classInputEl = document.getElementById("classInput");
 var alignmentInputEl = document.getElementById("alignmentInput");
 var backgroundInputEl = document.getElementById("backgroundInput")
-
+var levelEl = document.getElementById('level')
 //text elements
 var modsEl = document.getElementsByClassName('mod')
 var bioEl = document.getElementsByClassName("info")
 var initiativeEl = document.getElementById('initiative')
+var HPEl = document.getElementById('HP')
 
 //empty arrays for later
 var savedScores = []
@@ -108,7 +109,8 @@ saveProfBtn.addEventListener('click', function () {
                     profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                let profBonus = profBonusVal
+                //the prof must be the standard, if they are proficienct see above
+                let profBonus = parseInt(modsEl[0].textContent)
                 profBonusEl[i].textContent = `+ ${profBonus}`
                 profModArray.push(profBonus)
             }
@@ -125,7 +127,7 @@ saveProfBtn.addEventListener('click', function () {
                     profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                let profBonus = profBonusVal
+                let profBonus = parseInt(modsEl[1].textContent)
                 profBonusEl[i].textContent = `+ ${profBonus}`
                 profModArray.push(profBonus)
             }
@@ -141,7 +143,7 @@ saveProfBtn.addEventListener('click', function () {
                     profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                let profBonus = profBonusVal
+                let profBonus = parseInt(modsEl[2].textContent)
                 profBonusEl[i].textContent = `+ ${profBonus}`
                 profModArray.push(profBonus)
             }
@@ -157,7 +159,7 @@ saveProfBtn.addEventListener('click', function () {
                     profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                let profBonus = profBonusVal
+                let profBonus = parseInt(modsEl[3].textContent)
                 profBonusEl[i].textContent = `+ ${profBonus}`
                 profModArray.push(profBonus)
             }
@@ -172,7 +174,7 @@ saveProfBtn.addEventListener('click', function () {
                     profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                let profBonus = profBonusVal
+                let profBonus = parseInt(modsEl[4].textContent)
                 profBonusEl[i].textContent = `+ ${profBonus}`
                 profModArray.push(profBonus)
             }
@@ -187,7 +189,7 @@ saveProfBtn.addEventListener('click', function () {
                     profBonusEl[i].textContent = `${profBonus}`
                 }
             } else {
-                let profBonus = profBonusVal
+                let profBonus = parseInt(modsEl[5].textContent)
                 profBonusEl[i].textContent = `+ ${profBonus}`
                 profModArray.push(profBonus)
             }
@@ -206,6 +208,25 @@ saveProfBtn.addEventListener('click', function () {
     // console.log(profModArray)
     localStorage.setItem("mySavedProf", JSON.stringify(profArray))
     localStorage.setItem("mySavedProfMods", JSON.stringify(profModArray))
+})
+HPBtn.addEventListener('click', function () {
+    console.log("clicking")
+    console.log(HPEl)
+    if (levelEl.value == 1) {
+        if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
+            console.log("hit die is d6")
+            HPEl.value = 6 + parseInt(modsEl[1].textContent)
+        } else if (classInputEl.value == "Artificer" || classInputEl.value == "Bard" || classInputEl.value == "Cleric" || classInputEl.value == "Druid" || classInputEl.value == "Monk" || classInputEl.value == "Rogue" || classInputEl.value == "Warlock") {
+            console.log("Hit dice is d8")
+            HPEl.value = 8 + parseInt(modsEl[1].textContent)
+        } else if (classInputEl.value == "Fighter" || classInputEl.value == "Paladin" || classInputEl.value == "Ranger") {
+            console.log("hit die is d10")
+            HPEl.value = 10 + parseInt(modsEl[1].textContent)
+        } else {
+            console.log("hit die is d12")
+            HPEl.value = 12 + parseInt(modsEl[1].textContent)
+        }
+    }
 })
 
 function redoRoll(event) {
@@ -248,7 +269,7 @@ function SaveAbilScore() {
         //going in order Dex should be at index 2, we want to add to the initiative text as well
         if (i == 2) {
             console.log("in the conditional")
-            initiativeEl.textContent = (mods[i])
+            initiativeEl.textContent = `+ ${mods[i]}`
         }
     }
     localStorage.setItem("mySavedMods", JSON.stringify(mods))
