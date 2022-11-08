@@ -27,6 +27,7 @@ var classInputEl = document.getElementById("classInput");
 var alignmentInputEl = document.getElementById("alignmentInput");
 var backgroundInputEl = document.getElementById("backgroundInput")
 var levelEl = document.getElementById('level')
+var speedEl = document.getElementById('speed')
 //text elements
 var modsEl = document.getElementsByClassName('mod')
 var bioEl = document.getElementsByClassName("info")
@@ -294,6 +295,11 @@ function renderBio() {
         console.log("in for loop")
         bioEl[i].value = prevBio[i]
     }
+    if (raceInputEl.value == "Dragonborn" || raceInputEl.value == "Elf" || raceInputEl.value == "Half-Elf" || raceInputEl.value == "Half-Orc" || raceInputEl.value == "Human" || raceInputEl.value == "Tiefling") {
+        speedEl.textContent = 30
+    } else {
+        speedEl.textContent = 25
+    }
 }
 function renderScores() {
     console.log(modsEl)
@@ -302,6 +308,11 @@ function renderScores() {
     for (let i = 0; i < modsEl.length; i++) {
         abilityScoreEl[i].value = prevScores[i]
         modsEl[i].textContent = prevMods[i]
+    }
+    if (parseInt(modsEl[2].textContent) > 0) {
+        initiativeEl.textContent = `+ ${modsEl[2].textContent}`
+    } else {
+        initiativeEl.textContent = modsEl[2].textContent
     }
 }
 
