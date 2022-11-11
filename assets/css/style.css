@@ -1,17 +1,56 @@
 body {
-    /* font-family: "Shalimar"; */
+    font-family: "Xanh-Mono";
     background-color: #81d1f0;
 
 }
 
-.container {
-    background-color: #e2d9fa;
+#levelUp {
+    margin-left: 5%;
+    width: fit-content;
+}
+
+.dynamicData {
+    border: 1px solid black;
+    width: auto;
+    padding: 5%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#Bio {
+    border-radius: 10px;
+    background-color: antiquewhite;
+    padding: 1%;
+    /* display: inline-flex; */
+    /* justify-content: center; */
+}
+
+#levelContainer {
+    width: 10vw;
+}
+
+.infoContainer {
+    border-radius: 10px;
+    display: flex;
+    /* background-color: #e2d9fa; */
+    padding-bottom: 1%;
+    /* align-items: center; */
+}
+
+#randomizeBio {
+    align-self: flex-end;
+}
+
+button {
+    height: fit-content;
 }
 
 .infoContainer,
 .stats {
     display: flex;
     justify-content: space-between;
+
 }
 
 .abilityScores {
@@ -66,7 +105,8 @@ th p {
     width: fit-content;
     margin: 0;
 }
+
 /* need way to shrink the text inputs for spacing */
 .weaponInputs input {
-    width: 10%;
+    /* margin: 10px */
 }

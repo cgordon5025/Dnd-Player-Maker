@@ -7,6 +7,8 @@ var randomizeBioBtn = document.getElementById('randomizeBio')
 var saveBioBtn = document.getElementById("saveBio")
 var saveProfBtn = document.getElementById('saveProf')
 var HPBtn = document.getElementById('HPBtn')
+var levelUpBtn = document.getElementById('levelUp')
+
 //containers
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var rollContainer = document.getElementById('diceContainer')
@@ -14,12 +16,10 @@ var diceTextEl = document.getElementById('diceRollContainer');
 var rerollContainer = document.getElementById('rerollButtonContainer')
 //there should be 24 of these
 var profEl = document.querySelectorAll('.proficiency')
-// .querySelector('input')
 var profBonusEl = document.querySelectorAll('.profBonus')
 var profBonusVal = parseInt(document.getElementById("profValue").innerHTML)
-// profBonusEl[1].textContent = "hello"
 
-console.log(profBonusEl)
+// console.log(profBonusEl)
 // console.log(profEl)
 //input variables
 var raceInputEl = document.getElementById("raceInput");
@@ -33,6 +33,7 @@ var modsEl = document.getElementsByClassName('mod')
 var bioEl = document.getElementsByClassName("info")
 var initiativeEl = document.getElementById('initiative')
 var HPEl = document.getElementById('HP')
+var hitDie = document.getElementById('hitDie')
 
 //empty arrays for later
 var savedScores = []
@@ -41,7 +42,7 @@ var bioArray = [];
 var prevBio = [];
 var profArray = [];
 var profModArray = []
-
+// console.log(levelEl.textContent)
 //etc
 rollContainer.style.visibility = 'hidden'
 
@@ -89,7 +90,7 @@ rollAbilBtn.addEventListener('click', function () {
 
     }
 });
-console.log("testing", profEl.length)
+// console.log("testing", profEl.length)
 saveProfBtn.addEventListener('click', function () {
     //this should go for the length of 24
     profArray = [];
@@ -98,7 +99,7 @@ saveProfBtn.addEventListener('click', function () {
         profArray.push(profEl[i].checked)
         //this loop is for the charisma prof
         if (i < 5) {
-            console.log("prof is charisma")
+            // console.log("prof is charisma")
             if (profEl[i].checked == true) {
                 console.log(modsEl[0].textContent)
                 let profBonus = profBonusVal + parseInt(modsEl[0].textContent)
@@ -118,7 +119,7 @@ saveProfBtn.addEventListener('click', function () {
 
             //this is for constitution
         } else if (i == 5) {
-            console.log("prof is constitution")
+            // console.log("prof is constitution")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[1].textContent)
                 profModArray.push(profBonus)
@@ -134,7 +135,7 @@ saveProfBtn.addEventListener('click', function () {
             }
 
         } else if (i > 5 && i <= 9) {
-            console.log("prof is dex")
+            // console.log("prof is dex")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[2].textContent)
                 profModArray.push(profBonus)
@@ -150,7 +151,7 @@ saveProfBtn.addEventListener('click', function () {
             }
 
         } else if (i > 9 && i <= 15) {
-            console.log("prof is intelligence")
+            // console.log("prof is intelligence")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[3].textContent)
                 profModArray.push(profBonus)
@@ -165,7 +166,7 @@ saveProfBtn.addEventListener('click', function () {
                 profModArray.push(profBonus)
             }
         } else if (i > 15 && i <= 17) {
-            console.log("prof is str")
+            // console.log("prof is str")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[4].textContent)
                 profModArray.push(profBonus)
@@ -180,7 +181,7 @@ saveProfBtn.addEventListener('click', function () {
                 profModArray.push(profBonus)
             }
         } else if (i > 17) {
-            console.log("prof is wis")
+            // console.log("prof is wis")
             if (profEl[i].checked == true) {
                 let profBonus = profBonusVal + parseInt(modsEl[5].textContent)
                 profModArray.push(profBonus)
@@ -196,57 +197,109 @@ saveProfBtn.addEventListener('click', function () {
             }
         }
         else {
-            console.log("done")
+            // console.log("done")
         }
-        // if (profEl[i].checked == true) {
-        //     console.log("button is clicked and boolean is true")
-        //     profBonusEl[i].textContent = "hello"
-        // } else {
-        //     console.log("this button was not checked")
-        // }
     }
     // console.log(profArray)
     // console.log(profModArray)
     localStorage.setItem("mySavedProf", JSON.stringify(profArray))
     localStorage.setItem("mySavedProfMods", JSON.stringify(profModArray))
 })
-HPBtn.addEventListener('click', function () {
+levelUpBtn.addEventListener('click', function () {
     console.log("clicking")
-    console.log(HPEl)
-    if (levelEl.value == 1) {
+    // console.log(levelEl.textContent)
+    // console.log(HPEl)
+    if (levelEl.textContent == 0) {
         if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
-            console.log("hit die is d6")
-            HPEl.value = 6 + parseInt(modsEl[1].textContent)
+            // console.log("hit die is d6")
+            HPEl.textContent = 6 + parseInt(modsEl[1].textContent)
+            levelEl.textContent = 1
+            hitDie.textContent = "1d6"
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringif(HPEl.textContent))
+            console.log(levelEl.textContent)
+
+
         } else if (classInputEl.value == "Artificer" || classInputEl.value == "Bard" || classInputEl.value == "Cleric" || classInputEl.value == "Druid" || classInputEl.value == "Monk" || classInputEl.value == "Rogue" || classInputEl.value == "Warlock") {
-            console.log("Hit dice is d8")
-            HPEl.value = 8 + parseInt(modsEl[1].textContent)
+            // console.log("Hit dice is d8")
+            HPEl.textContent = 8 + parseInt(modsEl[1].textContent)
+            levelEl.textContent = 1
+            hitDie.textContent = "1d8"
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringify(HPEl.textContent))
+            console.log(levelEl.textContent)
+
         } else if (classInputEl.value == "Fighter" || classInputEl.value == "Paladin" || classInputEl.value == "Ranger") {
             console.log("hit die is d10")
-            HPEl.value = 10 + parseInt(modsEl[1].textContent)
+            HPEl.textContent = 10 + parseInt(modsEl[1].textContent)
+            levelEl.textContent = 1
+            hitDie.textContent = "1d10"
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringify(HPEl.textContent))
+            console.log(levelEl.textContent)
+
         } else {
             console.log("hit die is d12")
-            HPEl.value = 12 + parseInt(modsEl[1].textContent)
+            HPEl.textContent = 12 + parseInt(modsEl[1].textContent)
+            levelEl.textContent = 1
+            hitDie.textContent = "1d12"
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringify(HPEl.textContent))
+            console.log(levelEl.textContent)
+
+        }
+    } else {//if its greater than 0 
+        console.log("leveling higher than level 1")
+        if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
+            // console.log("hit die is d6")
+            HPEl.textContent = parseInt(currentHP) + rollDice(1, 6)
+            levelEl.textContent = parseInt(currentLevel) + 1
+            hitDie.textContent = `${parseInt(currentLevel)}d6`
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringif(HPEl.textContent))
+            console.log(levelEl.textContent)
+
+
+        } else if (classInputEl.value == "Artificer" || classInputEl.value == "Bard" || classInputEl.value == "Cleric" || classInputEl.value == "Druid" || classInputEl.value == "Monk" || classInputEl.value == "Rogue" || classInputEl.value == "Warlock") {
+            // console.log("Hit dice is d8")
+            HPEl.textContent = parseInt(HPEl.textContent) + rollDice(1, 8)
+            levelEl.textContent = parseInt(levelEl.textContent) + 1
+            hitDie.textContent = `${parseInt(levelEl.textContent)}d8`
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringify(HPEl.textContent))
+            console.log(levelEl.textContent)
+
+        } else if (classInputEl.value == "Fighter" || classInputEl.value == "Paladin" || classInputEl.value == "Ranger") {
+            console.log("hit die is d10")
+            HPEl.textContent = parseInt(HPEl.textContent) + rollDice(1, 10)
+            levelEl.textContent = parseInt(levelEl.textContent) + 1
+            hitDie.textContent = `${parseInt(levelEl.textContent)}d10`
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringify(HPEl.textContent))
+            console.log(levelEl.textContent)
+
+        } else {
+            console.log("hit die is d12")
+            HPEl.textContent = parseInt(HPEl.textContent) + rollDice(1, 12)
+            levelEl.textContent = parseInt(levelEl.textContent) + 1
+            hitDie.textContent = `${parseInt(levelEl.textContent)}d12`
+            localStorage.setItem("myLevel", JSON.stringify(levelEl.textContent))
+            localStorage.setItem("myHP", JSON.stringify(HPEl.textContent))
+            console.log(levelEl.textContent)
+
         }
     }
 })
 
 function redoRoll(event) {
-    //need to do a find where the button data num can equal the text rollnum data attribute, but how do?
-    // var btn1 = document..dataset.rollnum
-    // console.log(event.target)
 
     if (event.target.matches('button')) {
         const myRerollBtn = event.target.dataset.rerollbtn
-        console.log(myRerollBtn)
+        // console.log(myRerollBtn)
 
         const rerollEl = document.querySelector(`#diceRollContainer`).children.item(myRerollBtn)
 
         rerollEl.children[1].textContent = (rollDice(1, 20))
-        // console.log(rerollEl)
-        // console.log(rerollEl.children[1])
-        // console.log(event.target)
-        //for loop to find mathcing rollnum
-        //if on matching rollnum
         event.target.style.display = 'none'
     }
 }
@@ -266,7 +319,13 @@ function SaveAbilScore() {
             mods.push(((myScore - 11) / 2))
         }
         savedScores.push(myScore)
-        modsEl[i].textContent = (mods[i])
+        console.log(mods[i])
+        if (mods[i] > 0) {
+            modsEl[i].textContent = `+${mods[i]}`
+
+        } else {
+            modsEl[i].textContent = mods[i]
+        }
         //going in order Dex should be at index 2, we want to add to the initiative text as well
         if (i == 2) {
             console.log("in the conditional")
@@ -289,10 +348,11 @@ function saveBioInfo() {
 
 
 function renderBio() {
-    console.log("rendering bio")
-    console.log(bioArray)
+    // console.log("rendering bio")
+    // console.log(bioArray)
+    console.log(currentLevel)
     for (let i = 0; i < prevBio.length; i++) {
-        console.log("in for loop")
+        // console.log("in for loop")
         bioEl[i].value = prevBio[i]
     }
     if (raceInputEl.value == "Dragonborn" || raceInputEl.value == "Elf" || raceInputEl.value == "Half-Elf" || raceInputEl.value == "Half-Orc" || raceInputEl.value == "Human" || raceInputEl.value == "Tiefling") {
@@ -300,10 +360,25 @@ function renderBio() {
     } else {
         speedEl.textContent = 25
     }
+    levelEl.textContent = currentLevel
+    HPEl.textContent = currentHP
+    if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
+        hitDie.textContent = `${currentLevel}d6`
+    } else if (classInputEl.value == "Artificer" || classInputEl.value == "Bard" || classInputEl.value == "Cleric" || classInputEl.value == "Druid" || classInputEl.value == "Monk" || classInputEl.value == "Rogue" || classInputEl.value == "Warlock") {
+        hitDie.textContent = `${currentLevel}d8`
+    } else if (classInputEl.value == "Fighter" || classInputEl.value == "Paladin" || classInputEl.value == "Ranger") {
+        hitDie.textContent = `${currentLevel}d10`
+
+        console.log(levelEl.textContent)
+
+    } else {
+        hitDie.textContent = `${currentLevel}d12`
+    }
+
 }
 function renderScores() {
-    console.log(modsEl)
-    console.log(prevScores)
+    // console.log(modsEl)
+    // console.log(prevScores)
 
     for (let i = 0; i < modsEl.length; i++) {
         abilityScoreEl[i].value = prevScores[i]
@@ -317,10 +392,10 @@ function renderScores() {
 }
 
 function renderProfs() {
-    console.log(prevProf)
-    console.log(prevProfMods)
+    // console.log(prevProf)
+    // console.log(prevProfMods)
     for (let i = 0; i < profEl.length; i++) {
-        console.log(prevProfMods[i])
+        // console.log(prevProfMods[i])
         profEl[i].value = prevProf[i]
         if (prevProfMods[i] > 0) {
             profBonusEl[i].textContent = `+ ${prevProfMods[i]}`
@@ -411,12 +486,22 @@ async function init() {
     // console.log(raceArray)
     // console.log(alignmentArray)
     // console.log(backgroundArray)
+    if (!localStorage.getItem("myLevel")) {
+        currentLevel = 0
+    } else {
+        currentLevel = JSON.parse(localStorage.getItem("myLevel"))
+    }
+    if (!localStorage.getItem("myHP")) {
+        currentHP = 0
+    } else {
+        currentHP = JSON.parse(localStorage.getItem("myHP"))
+    }
     if (!localStorage.getItem("mySavedBio")) {
         bioArray = []
     } else {
         prevBio = JSON.parse(localStorage.getItem("mySavedBio"))
-        console.log("else statement")
-        console.log(prevBio)
+        // console.log("else statement")
+        // console.log(prevBio)
         renderBio()
     }
     if (!localStorage.getItem("mySavedScore") && !localStorage.getItem("mySavedMods")) {
@@ -435,5 +520,6 @@ async function init() {
         prevProfMods = JSON.parse(localStorage.getItem("mySavedProfMods"))
         renderProfs()
     }
+
 }
 init()
