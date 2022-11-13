@@ -248,7 +248,11 @@ levelUpBtn.addEventListener('click', function () {
             console.log(levelEl.textContent)
 
         }
-    } else {//if its greater than 0 
+    } else if (levelEl.textContent == 20) {
+        alert('Max level is 20')
+        levelUpBtn.style.display = 'none'
+    }
+    else {//if its greater than 0 
         console.log("leveling higher than level 1")
         if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
             // console.log("hit die is d6")
@@ -362,6 +366,9 @@ function renderBio() {
     }
     levelEl.textContent = currentLevel
     HPEl.textContent = currentHP
+    if (currentLevel == 20) {
+        levelUpBtn.style.display = 'none'
+    }
     if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
         hitDie.textContent = `${currentLevel}d6`
     } else if (classInputEl.value == "Artificer" || classInputEl.value == "Bard" || classInputEl.value == "Cleric" || classInputEl.value == "Druid" || classInputEl.value == "Monk" || classInputEl.value == "Rogue" || classInputEl.value == "Warlock") {

@@ -6,12 +6,20 @@ body {
 
 #levelUp {
     margin-left: 5%;
-    width: fit-content;
+    width: auto;
+}
+
+#saveContainer {
+    background-color: antiquewhite;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 1%;
 }
 
 .dynamicData {
     border: 1px solid black;
     width: auto;
+    height: fit-content;
     padding: 5%;
     background-color: #ffffff;
     display: flex;
@@ -19,11 +27,9 @@ body {
 }
 
 #Bio {
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background-color: antiquewhite;
-    padding: 1%;
-    /* display: inline-flex; */
-    /* justify-content: center; */
 }
 
 #levelContainer {

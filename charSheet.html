@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Press+Start+2P&family=Shalimar&family=Xanh+Mono&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courgette&family=Press+Start+2P&family=Shalimar&family=Xanh+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
@@ -45,7 +48,7 @@
                     <h3> Armor Class</h3>
                     <input placeholder="Character's AC" />
                 </section>
-                <section id="levelContainer">
+                <section class="d-flex flex-column align-items-center" id="levelContainer">
                     <h3> Level</h3>
                     <section class="d-flex">
                         <p class="dynamicData" id="level">0</p>
@@ -70,12 +73,11 @@
                 <section class="d-flex flex-column align-items-center">
                     <h3> Hit Dice</h3>
                     <p class="dynamicData" id="hitDie"></p>
-                    <!-- <button id="HPBtn">Roll for HP</button> -->
                 </section>
             </section>
 
         </section>
-        <section class="d-flex justify-content-center">
+        <section id="saveContainer" class="d-flex justify-content-center">
             <button id="saveBio" class="btn btn-primary">Save Info</button>
         </section>
         <div class="row">
@@ -268,10 +270,10 @@
                         <h3>Weapon Name</h3>
                     </section>
                     <section class="col-4">
-                        <h3>Damage</h3>
+                        <h3>Attack Bonus</h3>
                     </section>
                     <section class="col-4">
-                        <h3>Any Extra Effect?</h3>
+                        <h3>Damage</h3>
                     </section>
                 </section>
                 <section class="weaponInputs row">
