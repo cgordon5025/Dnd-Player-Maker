@@ -4,9 +4,43 @@ body {
 
 }
 
+#Bio {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: antiquewhite;
+}
+
+.infoContainer {
+    padding-bottom: 1%;
+}
+
+.infoContainer,
+.stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+#randomizeBio {
+    align-self: flex-end;
+}
+
+#levelContainer {
+    width: 10vw;
+}
+
 #levelUp {
     margin-left: 5%;
     width: auto;
+}
+
+.dynamicData {
+    border: 1px solid black;
+    width: auto;
+    height: fit-content;
+    padding: 5%;
+    background-color: #ffffff;
 }
 
 #saveContainer {
@@ -16,63 +50,68 @@ body {
     margin-bottom: 1%;
 }
 
-.dynamicData {
-    border: 1px solid black;
-    width: auto;
-    height: fit-content;
-    padding: 5%;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-}
-
-#Bio {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: antiquewhite;
-}
-
-#levelContainer {
-    width: 10vw;
-}
-
-.infoContainer {
-    border-radius: 10px;
-    display: flex;
-    /* background-color: #e2d9fa; */
-    padding-bottom: 1%;
-    /* align-items: center; */
-}
-
-#randomizeBio {
-    align-self: flex-end;
-}
-
 button {
     height: fit-content;
 }
 
-.infoContainer,
-.stats {
-    display: flex;
-    justify-content: space-between;
 
+.abilityTitle {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    margin-bottom: 1%;
+}
+
+#abilityContainer {
+    background-color: bisque;
+    border-radius: 10px;
 }
 
 .abilityScores {
-    border-bottom: 5px solid black;
+    border-bottom: 3px solid black;
     margin-bottom: 5px;
 }
 
 /* with table properties, this will likely change */
 #diceContainer {
     border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+table {
+    flex-wrap: wrap;
 }
 
 
 #testContainer {
     width: fit-content;
     border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#testContainer section {
+    position: relative;
+    width: auto;
+}
+
+#testContainer img {
+    justify-content: center;
+    width: 60px;
+}
+
+#testContainer p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    margin: 0;
+}
+
+#testContainer button {
+    justify-content: center;
 }
 
 th,

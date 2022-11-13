@@ -80,232 +80,304 @@
         <section id="saveContainer" class="d-flex justify-content-center">
             <button id="saveBio" class="btn btn-primary">Save Info</button>
         </section>
-        <div class="row">
-            <div class="col-6">
-                <section class="row">
-                    <section class="col-6">
-                        <h2>Ability Scores</h2>
+        <section class="container">
+            <div class="row">
+                <div class="col-6">
+                    <section class="abilityTitle row">
+                        <section class="col-6">
+                            <h3>Ability Scores</h3>
+                        </section>
+                        <section class="col-6">
+                            <h3>Proficiencies <span id="profValue">+2</span></h3>
+                        </section>
                     </section>
-                    <section class="col-6">
-                        <h2>Proficiencies <span id="profValue">+2</span>
+                    <section class="container" id="abilityContainer">
+                        <section class="abilityScores row">
+                            <section class="col-6">
+                                <h3>Charisma</h3>
+                                <input class="scoreInput" placeholder="Enter your Charisma" />
+                                <p class="mod"></p>
+                            </section>
+                            <section class="col-6">
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Saving Throws <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Deception <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Intimidation <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Performance <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Persuasion <span class="profBonus"></span>
+                                </label><br>
+                            </section>
+                        </section>
+                        <section class="abilityScores row">
+                            <section class="col-6">
+                                <h3>Constitution</h3>
+                                <input class="scoreInput" placeholder="Enter your Constitution" />
+                                <p class="mod"></p>
+                            </section>
+                            <section class=" col-6">
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Saving Throws <span class="profBonus"></span>
+                                </label><br>
+                            </section>
+                        </section>
+                        <section class="abilityScores row">
+                            <section class="col-6">
+                                <h3>Dexterity</h3>
+                                <input class="scoreInput" placeholder="Enter your Dexterity" />
+                                <p class="mod" id="dexMod"></p>
+                            </section>
+                            <section class="col-6">
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Saving Throws <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Acrobatics <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Sleight of Hand <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Stealth <span class="profBonus"></span>
+                                </label><br>
+                            </section>
+                        </section>
+                        <section class="abilityScores row">
+                            <section class="col-6">
+                                <h3>Intelligence</h3>
+                                <input class="scoreInput" placeholder="Enter your Intelligence" />
+                                <p class="mod"></p>
+                            </section>
+                            <section class="col-6">
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Saving Throws <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Arcana <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    History <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Investigation <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Nature <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Religion <span class="profBonus"></span>
+                                </label><br>
+                            </section>
+                        </section>
+                        <section class="abilityScores row">
+                            <section class="col-6">
+                                <h3>Strength</h3>
+                                <input class="scoreInput" placeholder="Enter your Strength" />
+                                <p class="mod"></p>
+                            </section>
+                            <section class="col-6">
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Saving Throws <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Athletics <span class="profBonus"></span>
+                                </label><br>
+                            </section>
+                        </section>
+                        <section class="abilityScores row">
+                            <section class="col-6">
+                                <h3>Wisdom</h3>
+                                <input class="scoreInput" placeholder="Enter your Wisdom" />
+                                <p class="mod"></p>
+                            </section>
+                            <section class="col-6">
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Saving Throws <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Animal Handling <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Insight <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Medicine <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Perception <span class="profBonus"></span>
+                                </label><br>
+                                <input class="proficiency form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Survival <span class="profBonus"></span>
+                                </label><br>
+                            </section>
+                        </section>
                     </section>
-                </section>
-                <section class="abilityScores row">
-                    <section class="col-6">
-                        <h3>Charisma</h3>
-                        <input class="scoreInput" placeholder="Enter your Charisma" />
-                        <p class="mod"></p>
+                    <button id="rollAbilScores">Roll Ability Scores</button>
+                    <button id="saveAbilScores">Save Ability Scores</button>
+                    <button id="saveProf">Save Proficiencies</button>
+                </div>
+                <div class='col-6'>
+                    <section>
+                        <h2>The Stats Dice You Rolled</h2>
                     </section>
-                    <section class="col-6">
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saving Throws <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Deception <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Intimidation <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Performance <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Persuasion <span class="profBonus"></span>
-                        </label><br>
+                    <section class="row w-100" id="diceContainer">
+                        <table class="table">
+                            <thead>
+                                <tr id="diceRollContainer">
+                                    <!-- we want the dice to show here -->
+                                    <!-- th's -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="rerollButtonContainer">
+                                    <!-- reroll buttons here -->
+                                    <!-- the td -->
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
-                </section>
-                <section class="abilityScores row">
-                    <section class="col-6">
-                        <h3>Constitution</h3>
-                        <input class="scoreInput" placeholder="Enter your Constitution" />
-                        <p class="mod"></p>
+                    <section class="row w-100" id="testContainer">
+                        <section class="d-flex flex-column">
+                            <section>
+                                <img src="./assets//images/d20_base.png">
+                                <p> 3</p>
+                            </section>
+                            <button>reroll</button>
+                        </section>
+                        <section class="d-flex flex-column">
+                            <section>
+                                <img src="./assets//images/d20_base.png">
+                                <p> 3</p>
+                            </section>
+                            <button>reroll</button>
+                        </section>
+                        <section class="d-flex flex-column">
+                            <section>
+                                <img src="./assets//images/d20_base.png">
+                                <p> 3</p>
+                            </section>
+                            <button>reroll</button>
+                        </section>
+                        <section class="d-flex flex-column">
+                            <section>
+                                <img src="./assets//images/d20_base.png">
+                                <p> 3</p>
+                            </section>
+                            <button>reroll</button>
+                        </section>
+                        <section class="d-flex flex-column">
+                            <section>
+                                <img src="./assets//images/d20_base.png">
+                                <p> 3</p>
+                            </section>
+                            <button>reroll</button>
+                        </section>
+                        <section class="d-flex flex-column">
+                            <section>
+                                <img src="./assets//images/d20_base.png">
+                                <p> 3</p>
+                            </section>
+                            <button>reroll</button>
+                        </section>
                     </section>
-                    <section class=" col-6">
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saving Throws <span class="profBonus"></span>
-                        </label><br>
+                    <section>Weapons</section>
+                    <section class="row">
+                        <section class="col-4">
+                            <h3>Weapon Name</h3>
+                        </section>
+                        <section class="col-4">
+                            <h3>Attack Bonus</h3>
+                        </section>
+                        <section class="col-4">
+                            <h3>Damage</h3>
+                        </section>
                     </section>
-                </section>
-                <section class="abilityScores row">
-                    <section class="col-6">
-                        <h3>Dexterity</h3>
-                        <input class="scoreInput" placeholder="Enter your Dexterity" />
-                        <p class="mod" id="dexMod"></p>
+                    <section class="weaponInputs row">
+                        <input class="weaponType col-4">
+                        <input class="damageRoll col-4">
+                        <input class="extraEffects col-4">
                     </section>
-                    <section class="col-6">
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saving Throws <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Acrobatics <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Sleight of Hand <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Stealth <span class="profBonus"></span>
-                        </label><br>
+                    <section class="weaponInputs row">
+                        <input class="weaponType col-4">
+                        <input class="damageRoll col-4">
+                        <input class="extraEffects col-4">
                     </section>
-                </section>
-                <section class="abilityScores row">
-                    <section class="col-6">
-                        <h3>Intelligence</h3>
-                        <input class="scoreInput" placeholder="Enter your Intelligence" />
-                        <p class="mod"></p>
+                    <section class="weaponInputs row">
+                        <input class="weaponType col-4">
+                        <input class="damageRoll col-4">
+                        <input class="extraEffects col-4">
                     </section>
-                    <section class="col-6">
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saving Throws <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Arcana <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            History <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Investigation <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Nature <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Religion <span class="profBonus"></span>
-                        </label><br>
+                    <section class="weaponInputs row">
+                        <input class="weaponType col-4">
+                        <input class="damageRoll col-4">
+                        <input class="extraEffects col-4">
                     </section>
-                </section>
-                <section class="abilityScores row">
-                    <section class="col-6">
-                        <h3>Strength</h3>
-                        <input class="scoreInput" placeholder="Enter your Strength" />
-                        <p class="mod"></p>
+                    <section class="weaponInputs row">
+                        <input class="weaponType w-1 col-4">
+                        <input class="damageRoll col-4">
+                        <input class="extraEffects col-4">
                     </section>
-                    <section class="col-6">
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saving Throws <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Athletics <span class="profBonus"></span>
-                        </label><br>
-                    </section>
-                </section>
-                <section class="abilityScores row">
-                    <section class="col-6">
-                        <h3>Wisdom</h3>
-                        <input class="scoreInput" placeholder="Enter your Wisdom" />
-                        <p class="mod"></p>
-                    </section>
-                    <section class="col-6">
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saving Throws <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Animal Handling <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Insight <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Medicine <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Perception <span class="profBonus"></span>
-                        </label><br>
-                        <input class="proficiency form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Survival <span class="profBonus"></span>
-                        </label><br>
-                    </section>
-                </section>
-                <button id="rollAbilScores">Roll Ability Scores</button>
-                <button id="saveAbilScores">Save Ability Scores</button>
-                <button id="saveProf">Save Proficiencies</button>
+                    <h2> Inventory</h2>
+                    <textarea></textarea>
+                    <button id="saveInv"> Save Inventory</button>
+                </div>
             </div>
-            <div class='col-6'>
-                <section>
-                    <h2>The Stats Dice You Rolled</h2>
-                </section>
-                <section class="row w-100" id="diceContainer">
-                    <table class="table">
-                        <thead>
-                            <tr id="diceRollContainer">
-                                <!-- we want the dice to show here -->
-                                <!-- th's -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id="rerollButtonContainer">
-                                <!-- reroll buttons here -->
-                                <!-- the td -->
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <section>Weapons</section>
-                <section class="row">
-                    <section class="col-4">
-                        <h3>Weapon Name</h3>
-                    </section>
-                    <section class="col-4">
-                        <h3>Attack Bonus</h3>
-                    </section>
-                    <section class="col-4">
-                        <h3>Damage</h3>
-                    </section>
-                </section>
-                <section class="weaponInputs row">
-                    <input class="weaponType col-4">
-                    <input class="damageRoll col-4">
-                    <input class="extraEffects col-4">
-                </section>
-                <section class="weaponInputs row">
-                    <input class="weaponType col-4">
-                    <input class="damageRoll col-4">
-                    <input class="extraEffects col-4">
-                </section>
-                <section class="weaponInputs row">
-                    <input class="weaponType col-4">
-                    <input class="damageRoll col-4">
-                    <input class="extraEffects col-4">
-                </section>
-                <section class="weaponInputs row">
-                    <input class="weaponType col-4">
-                    <input class="damageRoll col-4">
-                    <input class="extraEffects col-4">
-                </section>
-                <section class="weaponInputs row">
-                    <input class="weaponType w-1 col-4">
-                    <input class="damageRoll col-4">
-                    <input class="extraEffects col-4">
-                </section>
-                <h2> Inventory</h2>
-                <textarea></textarea>
-                <button id="saveInv"> Save Inventory</button>
-            </div>
-
+        </section>
     </section>
     <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
