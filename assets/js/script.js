@@ -45,23 +45,23 @@ var profModArray = []
 // console.log(levelEl.textContent)
 //etc
 rollContainer.style.visibility = 'hidden'
+console.log(rollContainer.innerHTML)
+console.log(diceTextEl)
 
 //event listeners
 saveBioBtn.addEventListener("click", saveBioInfo)
 saveAbilBtn.addEventListener('click', SaveAbilScore)
 rollAbilBtn.addEventListener('click', function () {
     rollContainer.style.visibility = 'visible';
-    diceTextEl.innerHTML = '';
-    rerollContainer.innerHTML = '';
+    // rollContainer.innerHTML = ''
+    // rerollContainer.innerHTML = '';
     for (let i = 0; i < 6; i++) {
         //this acutally 'rolls' the die and shows them to the user
-        var oneRollEl = document.createElement('th')
-        oneRollEl.setAttribute('scope', 'col')
-        //need to add attribute scope = 'col' to properly format the table
-        // oneRollEl.attributes(scope = 'col')
+        var singleRollContainer = document.createElement('section')
+        singleRollContainer.classList.add('d-flex', 'flex-column')
+        // var dieContainer = document.createElement('section')
+        var oneRollEl = document.createElement('section')
         var diceRoll = document.createElement('p')
-        //set data attribute so that each button can refer to the specfic roll
-        // li.setAttribute("data-index", i);
         diceRoll.textContent = (rollDice(1, 20))
         diceRoll.setAttribute('data-rollnum', i)
         var d20Img = document.createElement('img')
@@ -70,27 +70,24 @@ rollAbilBtn.addEventListener('click', function () {
         // console.log(d20Img)
         oneRollEl.appendChild(d20Img)
         oneRollEl.appendChild(diceRoll)
-        diceTextEl.appendChild(oneRollEl)
+        singleRollContainer.appendChild(oneRollEl)
+        rollContainer.appendChild(singleRollContainer)
 
         //now lets add in the buttons
-        var redoEl = document.createElement('td')
         var rerollBtn = document.createElement('button')
         //set up attributes and class for each reroll button
         rerollBtn.textContent = ('Reroll')
         rerollBtn.className = "redoroll"
         rerollBtn.setAttribute('data-rerollbtn', (i))
         //now lets put them all togehter
-        redoEl.appendChild(rerollBtn)
-        rerollContainer.appendChild(redoEl)
-        // console.log(rerollBtn)
-        document.querySelector('.table').addEventListener('click', redoRoll)
+        singleRollContainer.appendChild(rerollBtn)
 
-        // rerollBtn.addEventListener('click', redoRoll)
+        rerollBtn.addEventListener('click', redoRoll)
 
 
     }
 });
-// console.log("testing", profEl.length)
+
 saveProfBtn.addEventListener('click', function () {
     //this should go for the length of 24
     profArray = [];
@@ -299,11 +296,11 @@ function redoRoll(event) {
 
     if (event.target.matches('button')) {
         const myRerollBtn = event.target.dataset.rerollbtn
-        // console.log(myRerollBtn)
+        console.log(myRerollBtn)
+        console.log(document.querySelector(`#diceContainer`).querySelectorAll('p').item(myRerollBtn))
+        const rerollEl = (document.querySelector(`#diceContainer`).querySelectorAll('p').item(myRerollBtn))
 
-        const rerollEl = document.querySelector(`#diceRollContainer`).children.item(myRerollBtn)
-
-        rerollEl.children[1].textContent = (rollDice(1, 20))
+        rerollEl.textContent = (rollDice(1, 20))
         event.target.style.display = 'none'
     }
 }

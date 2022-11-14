@@ -73,14 +73,34 @@ button {
 
 /* with table properties, this will likely change */
 #diceContainer {
+    width: fit-content;
     border: 2px solid black;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+}
+#diceContainer img {
+    justify-content: center;
+    width: 60px;
+}
+#diceContainer section {
+    position: relative;
+    width: auto;
 }
 
-table {
-    flex-wrap: wrap;
+#diceContainer p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    margin: 0;
 }
+
+#diceContainer button {
+    justify-content: center;
+}
+
 
 
 #testContainer {
