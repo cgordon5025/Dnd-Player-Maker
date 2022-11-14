@@ -19,8 +19,6 @@ var profEl = document.querySelectorAll('.proficiency')
 var profBonusEl = document.querySelectorAll('.profBonus')
 var profBonusVal = parseInt(document.getElementById("profValue").innerHTML)
 
-// console.log(profBonusEl)
-// console.log(profEl)
 //input variables
 var raceInputEl = document.getElementById("raceInput");
 var classInputEl = document.getElementById("classInput");
@@ -42,7 +40,7 @@ var bioArray = [];
 var prevBio = [];
 var profArray = [];
 var profModArray = []
-// console.log(levelEl.textContent)
+
 //etc
 rollContainer.style.visibility = 'hidden'
 console.log(rollContainer.innerHTML)
@@ -53,13 +51,11 @@ saveBioBtn.addEventListener("click", saveBioInfo)
 saveAbilBtn.addEventListener('click', SaveAbilScore)
 rollAbilBtn.addEventListener('click', function () {
     rollContainer.style.visibility = 'visible';
-    // rollContainer.innerHTML = ''
-    // rerollContainer.innerHTML = '';
+    rollContainer.innerHTML = ''
     for (let i = 0; i < 6; i++) {
         //this acutally 'rolls' the die and shows them to the user
         var singleRollContainer = document.createElement('section')
         singleRollContainer.classList.add('d-flex', 'flex-column')
-        // var dieContainer = document.createElement('section')
         var oneRollEl = document.createElement('section')
         var diceRoll = document.createElement('p')
         diceRoll.textContent = (rollDice(1, 20))
@@ -81,10 +77,7 @@ rollAbilBtn.addEventListener('click', function () {
         rerollBtn.setAttribute('data-rerollbtn', (i))
         //now lets put them all togehter
         singleRollContainer.appendChild(rerollBtn)
-
         rerollBtn.addEventListener('click', redoRoll)
-
-
     }
 });
 
@@ -204,8 +197,7 @@ saveProfBtn.addEventListener('click', function () {
 })
 levelUpBtn.addEventListener('click', function () {
     console.log("clicking")
-    // console.log(levelEl.textContent)
-    // console.log(HPEl)
+   
     if (levelEl.textContent == 0) {
         if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
             // console.log("hit die is d6")
