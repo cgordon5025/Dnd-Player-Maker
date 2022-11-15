@@ -12,7 +12,8 @@ var invBtn = document.getElementById('saveInv')
 var moreInv = document.getElementById('addMore')
 var saveFeat = document.getElementById('saveFeat')
 var moreFeat = document.getElementById('addFeat')
-
+var moreWeapons = document.getElementById('addWeap')
+var saveWeapons = document.getElementById('saveWeap')
 //containers
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var rollContainer = document.getElementById('diceContainer')
@@ -20,6 +21,8 @@ var diceTextEl = document.getElementById('diceRollContainer');
 var rerollContainer = document.getElementById('rerollButtonContainer')
 var invContainer = document.getElementById('invContainer')
 var featContainer = document.getElementById('featContainer')
+var weaponsContainer = document.getElementById('weaponsContainer')
+
 //there should be 24 of these
 var profEl = document.querySelectorAll('.proficiency')
 var profBonusEl = document.querySelectorAll('.profBonus')
@@ -32,7 +35,9 @@ var alignmentInputEl = document.getElementById("alignmentInput");
 var backgroundInputEl = document.getElementById("backgroundInput")
 var levelEl = document.getElementById('level')
 var speedEl = document.getElementById('speed')
-var weapons = document.getElementById('weaponsContainer').querySelectorAll('input')
+
+// var weapons = document.getElementsByClassName('weaponInputs')
+// .querySelectorAll('input')
 var inventoryEl = document.getElementById('invContainer').children
 var featEl = document.getElementById('featContainer').children
 //text elements
@@ -57,8 +62,6 @@ var feats = []
 var savedFeat = []
 //etc
 rollContainer.style.visibility = 'hidden'
-console.log(rollContainer.innerHTML)
-console.log(diceTextEl)
 
 //event listeners
 saveBioBtn.addEventListener("click", saveBioInfo)
@@ -309,18 +312,47 @@ moreFeat.addEventListener('click', function () {
     newFeat.placeholder = "Add a new Feature or Trait"
     featContainer.appendChild(newFeat)
 })
-invBtn.addEventListener('click', function () {
-    console.log(inventoryEl)
+moreWeapons.addEventListener('click', function () {
+
+    singleWeapContainer = document.createElement('section')
+    singleWeapContainer.classList.add('weaponInputs', 'row')
+    weaponTypeInput = document.createElement('input')
+    weaponTypeInput.classList = ('weaponType', 'col-3')
+    weaponTypeInput.placeholder = 'Weapon Type'
+
+    AtkBonusInput = document.createElement('input')
+    AtkBonusInput.classList.add('AtkBonus', 'col-3')
+    AtkBonusInput.placeholder = 'Attack Bonus'
+
+    damageRollInput = document.createElement('input')
+    damageRollInput.classList.add('damageRoll', 'col-3')
+    damageRollInput.placeholder = 'Damage Roll'
+
+    singleWeapContainer.appendChild(weaponTypeInput)
+    singleWeapContainer.appendChild(AtkBonusInput)
+    singleWeapContainer.appendChild(damageRollInput)
+    weaponsContainer.appendChild(singleWeapContainer)
+})
+
+saveWeapons.addEventListener('click', function () {
+    //this needs to be because it wont find the dynamic content until after its made
+    var weapons = document.getElementById('weaponsContainer').querySelectorAll('input')
     weaponsArray = [];
-    inventory = [];
+    console.log('clicked')
     for (let i = 0; i < weapons.length; i++) {
         weaponsArray.push(weapons[i].value)
     }
+    localStorage.setItem('mySavedWeapons', JSON.stringify(weaponsArray))
+
+})
+invBtn.addEventListener('click', function () {
+    console.log(inventoryEl)
+    inventory = [];
+
     for (let i = 0; i < inventoryEl.length; i++) {
         inventory.push(inventoryEl[i].value)
     }
     localStorage.setItem('mySavedInv', JSON.stringify(inventory))
-    localStorage.setItem('mySavedWeapons', JSON.stringify(weaponsArray))
 })
 
 saveFeat.addEventListener('click', function () {
@@ -386,11 +418,8 @@ function saveBioInfo() {
     localStorage.setItem("mySavedBio", JSON.stringify(bioArray))
 }
 
-
 function renderBio() {
-    // console.log("rendering bio")
-    // console.log(bioArray)
-    console.log(currentLevel)
+
     for (let i = 0; i < prevBio.length; i++) {
         // console.log("in for loop")
         bioEl[i].value = prevBio[i]
@@ -450,8 +479,32 @@ function renderProfs() {
 }
 
 function renderWeapons() {
-    for (let i = 0; i < weapons.length; i++) {
-        weapons[i].value = savedWeapons[i]
+    var weapArrays = [], size = 3
+    for (let i = 0; i < savedWeapons.length; i += size) {
+        weapArrays.push(savedWeapons.slice(i, i + size))
+    }
+    console.log(weapArrays)
+    for (let i = 0; i < weapArrays.length; i++) {
+
+        singleWeapContainer = document.createElement('section')
+        singleWeapContainer.classList.add('weaponInputs', 'row')
+        weaponTypeInput = document.createElement('input')
+        weaponTypeInput.classList = ('weaponType', 'col-3')
+        weaponTypeInput.value = weapArrays[i][0]
+
+        AtkBonusInput = document.createElement('input')
+        AtkBonusInput.classList.add('AtkBonus', 'col-3')
+        AtkBonusInput.value = weapArrays[i][1]
+
+        damageRollInput = document.createElement('input')
+        damageRollInput.classList.add('damageRoll', 'col-3')
+        damageRollInput.value = weapArrays[i][2]
+
+        singleWeapContainer.appendChild(weaponTypeInput)
+        singleWeapContainer.appendChild(AtkBonusInput)
+        singleWeapContainer.appendChild(damageRollInput)
+        weaponsContainer.appendChild(singleWeapContainer)
+        // weapons[i].value = savedWeapons[i]
     }
     for (let i = 0; i < savedInv.length; i++) {
         newInv = document.createElement('input')

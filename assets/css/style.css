@@ -104,11 +104,36 @@ button {
 }
 
 #invBtns,
-#featBtn {
+#featBtn,
+#weapBtns {
     justify-content: space-evenly;
 }
 
 /* need way to shrink the text inputs for spacing */
-.weaponInputs input {
-    /* margin: 10px */
+.weaponInputs {
+    justify-content: space-evenly;
+}
+
+#weaponLabels,
+#weapons {
+    background-color: antiquewhite;
+}
+
+#weaponLabels {
+    border-radius: 10px;
+    margin-bottom: 1%;
+}
+
+#weapons {
+    border-radius: 10px;
+    padding-top: 5%;
+    margin-bottom: 2%;
+}
+
+#Inventory,
+#Feats {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 2%;
+    margin-bottom: 2%;
 }

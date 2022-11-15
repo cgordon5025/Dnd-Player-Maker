@@ -278,9 +278,7 @@
                     <section class="row w-100" id="diceContainer">
 
                     </section>
-
-
-                    <section class="row">
+                    <section class="row" id="weaponLabels">
                         <section class="col-4">
                             <h4>Weapon Name</h4>
                         </section>
@@ -291,46 +289,32 @@
                             <h4>Damage</h4>
                         </section>
                     </section>
-                    <div id="weaponsContainer">
-                        <section class="weaponInputs row">
-                            <input class="weaponType col-4">
-                            <input class="damageRoll col-4">
-                            <input class="extraEffects col-4">
+                    <section id="weapons">
+                        <div id="weaponsContainer">
+
+                        </div>
+                        <section class="d-flex" id="weapBtns">
+                            <button class="btn btn-primary" id="addWeap">Add another Weapon</button>
+                            <button class="btn btn-primary" id="saveWeap"> Save Weapons</button>
                         </section>
-                        <section class="weaponInputs row">
-                            <input class="weaponType col-4">
-                            <input class="damageRoll col-4">
-                            <input class="extraEffects col-4">
-                        </section>
-                        <section class="weaponInputs row">
-                            <input class="weaponType col-4">
-                            <input class="damageRoll col-4">
-                            <input class="extraEffects col-4">
-                        </section>
-                        <section class="weaponInputs row">
-                            <input class="weaponType col-4">
-                            <input class="damageRoll col-4">
-                            <input class="extraEffects col-4">
-                        </section>
-                        <section class="weaponInputs row">
-                            <input class="weaponType w-1 col-4">
-                            <input class="damageRoll col-4">
-                            <input class="extraEffects col-4">
-                        </section>
-                    </div>
-                    <h2> Inventory</h2>
-                    <section class="d-flex flex-column" id="invContainer">
                     </section>
-                    <section class="d-flex" id="invBtns">
-                        <button class="btn btn-primary" id="addMore">Add another Item</button>
-                        <button class="btn btn-primary" id="saveInv"> Save Inventory</button>
+                    <section id="Inventory">
+                        <h2> Inventory</h2>
+                        <section class="d-flex flex-column" id="invContainer">
+                        </section>
+                        <section class="d-flex" id="invBtns">
+                            <button class="btn btn-primary" id="addMore">Add another Item</button>
+                            <button class="btn btn-primary" id="saveInv"> Save Inventory</button>
+                        </section>
                     </section>
-                    <h2>Features and Traits</h2>
-                    <section class="d-flex flex-column" id="featContainer">
-                    </section>
-                    <section class="d-flex" id="featBtn">
-                        <button class="btn btn-primary" id="addFeat">Add another Item</button>
-                        <button class="btn btn-primary" id="saveFeat"> Save Inventory</button>
+                    <section id="Feats">
+                        <h2>Features and Traits</h2>
+                        <section class="d-flex flex-column" id="featContainer">
+                        </section>
+                        <section class="d-flex" id="featBtn">
+                            <button class="btn btn-primary" id="addFeat">Add another Item</button>
+                            <button class="btn btn-primary" id="saveFeat"> Save Inventory</button>
+                        </section>
                     </section>
                 </div>
             </div>
