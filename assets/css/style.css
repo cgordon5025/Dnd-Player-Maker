@@ -79,10 +79,12 @@ button {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 #diceContainer img {
     justify-content: center;
     width: 60px;
 }
+
 #diceContainer section {
     position: relative;
     width: auto;
@@ -101,74 +103,9 @@ button {
     justify-content: center;
 }
 
-
-
-#testContainer {
-    width: fit-content;
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#testContainer section {
-    position: relative;
-    width: auto;
-}
-
-#testContainer img {
-    justify-content: center;
-    width: 60px;
-}
-
-#testContainer p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    margin: 0;
-}
-
-#testContainer button {
-    justify-content: center;
-}
-
-th,
-td {
-    position: relative;
-    width: auto;
-}
-
-/* remore the formatting */
-.table th,
-.table td {
-    border: 1px !important;
-}
-
-thead tr {
-    display: flex;
+#invBtns,
+#featBtn {
     justify-content: space-evenly;
-}
-
-tbody tr {
-    display: flex;
-    justify-content: space-around;
-}
-
-tr img {
-    justify-content: center;
-    width: 60px
-}
-
-td button,
-th p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    margin: 0;
 }
 
 /* need way to shrink the text inputs for spacing */

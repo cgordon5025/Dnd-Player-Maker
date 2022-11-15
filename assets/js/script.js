@@ -10,6 +10,8 @@ var HPBtn = document.getElementById('HPBtn')
 var levelUpBtn = document.getElementById('levelUp')
 var invBtn = document.getElementById('saveInv')
 var moreInv = document.getElementById('addMore')
+var saveFeat = document.getElementById('saveFeat')
+var moreFeat = document.getElementById('addFeat')
 
 //containers
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
@@ -17,6 +19,7 @@ var rollContainer = document.getElementById('diceContainer')
 var diceTextEl = document.getElementById('diceRollContainer');
 var rerollContainer = document.getElementById('rerollButtonContainer')
 var invContainer = document.getElementById('invContainer')
+var featContainer = document.getElementById('featContainer')
 //there should be 24 of these
 var profEl = document.querySelectorAll('.proficiency')
 var profBonusEl = document.querySelectorAll('.profBonus')
@@ -30,9 +33,8 @@ var backgroundInputEl = document.getElementById("backgroundInput")
 var levelEl = document.getElementById('level')
 var speedEl = document.getElementById('speed')
 var weapons = document.getElementById('weaponsContainer').querySelectorAll('input')
-// var inventoryEl = document.getElementById('inventory')
-// console.log(inventoryEl)
 var inventoryEl = document.getElementById('invContainer').children
+var featEl = document.getElementById('featContainer').children
 //text elements
 var modsEl = document.getElementsByClassName('mod')
 var bioEl = document.getElementsByClassName("info")
@@ -51,6 +53,8 @@ var weaponsArray = [];
 var savedWeapons = [];
 var inventory = []
 var savedInv = []
+var feats = []
+var savedFeat = []
 //etc
 rollContainer.style.visibility = 'hidden'
 console.log(rollContainer.innerHTML)
@@ -299,6 +303,12 @@ moreInv.addEventListener('click', function () {
     newInv.placeholder = "Add new Item"
     invContainer.appendChild(newInv)
 })
+moreFeat.addEventListener('click', function () {
+    newFeat = document.createElement('input')
+    newFeat.classList = ('feats')
+    newFeat.placeholder = "Add a new Feature or Trait"
+    featContainer.appendChild(newFeat)
+})
 invBtn.addEventListener('click', function () {
     console.log(inventoryEl)
     weaponsArray = [];
@@ -311,6 +321,14 @@ invBtn.addEventListener('click', function () {
     }
     localStorage.setItem('mySavedInv', JSON.stringify(inventory))
     localStorage.setItem('mySavedWeapons', JSON.stringify(weaponsArray))
+})
+
+saveFeat.addEventListener('click', function () {
+    feats = [];
+    for (let i = 0; i < featEl.length; i++) {
+        feats.push(featEl[i].value)
+    }
+    localStorage.setItem('mySavedFeats', JSON.stringify(feats))
 })
 
 function redoRoll(event) {
@@ -442,6 +460,14 @@ function renderWeapons() {
     }
 }
 
+function renderFeats() {
+    for (let i = 0; i < savedFeat.length; i++) {
+        newFeat = document.createElement('input')
+        newFeat.value = savedFeat[i]
+        featContainer.appendChild(newFeat)
+    }
+}
+
 randomizeBioBtn.addEventListener("click", function () {
     if (!raceInputEl.value) {
         raceInputEl.value = raceArray[Math.floor(Math.random() * raceArray.length)];
@@ -558,6 +584,13 @@ async function init() {
         savedInv = JSON.parse(localStorage.getItem('mySavedInv'))
         renderWeapons()
     }
+    if (!localStorage.getItem('mySavedFeats')) {
+        savedFeat = [];
+    } else {
+        savedFeat = JSON.parse(localStorage.getItem('mySavedFeats'))
+        renderFeats()
+    }
+
 
 }
 init()
