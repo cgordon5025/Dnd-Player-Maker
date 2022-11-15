@@ -1,11 +1,11 @@
 # Dnd-Player-Maker
 
 ## Description
-
+This is a simple front end application that makes use of a DND API to make a random character. users can add the stats, weapons, inventory and feats and save them to local storage.
 ## Installation 
 N/A
 ## Usage
-
+This is a front end only application that allows the user to create a single DND character. One can enter in theiir character's race/class etc. or they can use the randomize feature to generate a random race/class/alignment etc. The they can roll physical dice or roll the virtual dice on the size, and allocate those dice to the different Ability scores. The site will do the modifier and proficiency calculations for you once you click 'save ability scores' and 'sace proficiencies'
 ![mock-up.png](mock-up of website)
 
 ## Credits
@@ -19,24 +19,3 @@ N/A
 
 ## Link to Application
 [Link to application](httsp://cgordon5025.github.io/Dnd-Player-Maker)
-
-PseudoCoding
-
-I want to be able to make a DND character genrator/character sheet
-with options to completely randomize the race/class etc.
-
-Feature, if they fill out the name/background, store those and then have the rest populate randomly
-
-
-random num generator for 5x from a range of 1-20 (generates the stats), then let them allocate where they want the stats to go
-from there calculate the mods modal for this
-
-Choosing a random class/race etc. could probably call down from API and do a Math.floor(math.random) type command
-
-Single button to save it all
-
-multi page to first decide what name/race/class and stats, second page with that material and then ask if they want skills/spells/equipment 
-
-another page to store all of your characters?
-
-have a modal so that when I roll x amount of die, it shows me the results
