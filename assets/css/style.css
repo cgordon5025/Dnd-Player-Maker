@@ -59,6 +59,11 @@ button {
     background-color: antiquewhite;
     border-radius: 10px;
     margin-bottom: 1%;
+
+}
+
+.abilityTitle section {
+    padding: 0%;
 }
 
 #abilityContainer {
@@ -101,6 +106,8 @@ button {
 
 #diceContainer button {
     justify-content: center;
+    width: 60px;
+    font-size: small;
 }
 
 #invBtns,
@@ -131,7 +138,8 @@ button {
 }
 
 #Inventory,
-#Feats {
+#Feats,
+#dice {
     background-color: antiquewhite;
     border-radius: 10px;
     padding: 2%;

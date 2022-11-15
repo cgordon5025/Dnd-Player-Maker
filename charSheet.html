@@ -83,15 +83,15 @@
         <section class="container">
             <div class="row">
                 <div class="col-6">
-                    <section class="abilityTitle row">
-                        <section class="col-6">
-                            <h3>Ability Scores</h3>
-                        </section>
-                        <section class="col-6">
-                            <h3>Proficiencies <span id="profValue">+2</span></h3>
-                        </section>
-                    </section>
                     <section class="container" id="abilityContainer">
+                        <section class="abilityTitle row">
+                            <section class="col-6">
+                                <h3>Ability Scores</h3>
+                            </section>
+                            <section class="col-6">
+                                <h3>Proficiencies <span id="profValue">+2</span></h3>
+                            </section>
+                        </section>
                         <section class="abilityScores row">
                             <section class="col-6">
                                 <h3>Charisma</h3>
@@ -267,17 +267,19 @@
                             </section>
                         </section>
                     </section>
-                    <button id="rollAbilScores">Roll Ability Scores</button>
-                    <button id="saveAbilScores">Save Ability Scores</button>
-                    <button id="saveProf">Save Proficiencies</button>
+                    <button id="rollAbilScores" class="btn btn-primary">Roll Ability Scores</button>
+                    <button id="saveAbilScores" class="btn btn-primary">Save Ability Scores</button>
+                    <button id="saveProf" class="btn btn-primary">Save Proficiencies</button>
                 </div>
                 <div class='col-6'>
-                    <section>
-                        <h2>The Stats Dice You Rolled</h2>
-                    </section>
-                    <section class="row w-100" id="diceContainer">
+                    <div id="dice">
+                        <section>
+                            <h2>The Stats Dice You Rolled</h2>
+                        </section>
+                        <section class="w-100" id="diceContainer">
 
-                    </section>
+                        </section>
+                    </div>
                     <section class="row" id="weaponLabels">
                         <section class="col-4">
                             <h4>Weapon Name</h4>

@@ -91,6 +91,7 @@ rollAbilBtn.addEventListener('click', function () {
         //set up attributes and class for each reroll button
         rerollBtn.textContent = ('Reroll')
         rerollBtn.className = "redoroll"
+        rerollBtn.classList.add('btn', 'btn-primary')
         rerollBtn.setAttribute('data-rerollbtn', (i))
         //now lets put them all togehter
         singleRollContainer.appendChild(rerollBtn)
