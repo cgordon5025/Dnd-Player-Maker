@@ -8,12 +8,15 @@ var saveBioBtn = document.getElementById("saveBio")
 var saveProfBtn = document.getElementById('saveProf')
 var HPBtn = document.getElementById('HPBtn')
 var levelUpBtn = document.getElementById('levelUp')
+var invBtn = document.getElementById('saveInv')
+var moreInv = document.getElementById('addMore')
 
 //containers
 var abilityScoreEl = document.getElementsByClassName('scoreInput')
 var rollContainer = document.getElementById('diceContainer')
 var diceTextEl = document.getElementById('diceRollContainer');
 var rerollContainer = document.getElementById('rerollButtonContainer')
+var invContainer = document.getElementById('invContainer')
 //there should be 24 of these
 var profEl = document.querySelectorAll('.proficiency')
 var profBonusEl = document.querySelectorAll('.profBonus')
@@ -26,6 +29,10 @@ var alignmentInputEl = document.getElementById("alignmentInput");
 var backgroundInputEl = document.getElementById("backgroundInput")
 var levelEl = document.getElementById('level')
 var speedEl = document.getElementById('speed')
+var weapons = document.getElementById('weaponsContainer').querySelectorAll('input')
+// var inventoryEl = document.getElementById('inventory')
+// console.log(inventoryEl)
+var inventoryEl = document.getElementById('invContainer').children
 //text elements
 var modsEl = document.getElementsByClassName('mod')
 var bioEl = document.getElementsByClassName("info")
@@ -39,8 +46,11 @@ var mods = [];
 var bioArray = [];
 var prevBio = [];
 var profArray = [];
-var profModArray = []
-
+var profModArray = [];
+var weaponsArray = [];
+var savedWeapons = [];
+var inventory = []
+var savedInv = []
 //etc
 rollContainer.style.visibility = 'hidden'
 console.log(rollContainer.innerHTML)
@@ -197,7 +207,7 @@ saveProfBtn.addEventListener('click', function () {
 })
 levelUpBtn.addEventListener('click', function () {
     console.log("clicking")
-   
+
     if (levelEl.textContent == 0) {
         if (classInputEl.value == "Wizard" || levelEl.value == "Sorcerer") {
             // console.log("hit die is d6")
@@ -282,6 +292,25 @@ levelUpBtn.addEventListener('click', function () {
 
         }
     }
+})
+moreInv.addEventListener('click', function () {
+    newInv = document.createElement('input')
+    newInv.classList = ('inventory')
+    newInv.placeholder = "Add new Item"
+    invContainer.appendChild(newInv)
+})
+invBtn.addEventListener('click', function () {
+    console.log(inventoryEl)
+    weaponsArray = [];
+    inventory = [];
+    for (let i = 0; i < weapons.length; i++) {
+        weaponsArray.push(weapons[i].value)
+    }
+    for (let i = 0; i < inventoryEl.length; i++) {
+        inventory.push(inventoryEl[i].value)
+    }
+    localStorage.setItem('mySavedInv', JSON.stringify(inventory))
+    localStorage.setItem('mySavedWeapons', JSON.stringify(weaponsArray))
 })
 
 function redoRoll(event) {
@@ -402,6 +431,17 @@ function renderProfs() {
     }
 }
 
+function renderWeapons() {
+    for (let i = 0; i < weapons.length; i++) {
+        weapons[i].value = savedWeapons[i]
+    }
+    for (let i = 0; i < savedInv.length; i++) {
+        newInv = document.createElement('input')
+        newInv.value = savedInv[i]
+        invContainer.appendChild(newInv)
+    }
+}
+
 randomizeBioBtn.addEventListener("click", function () {
     if (!raceInputEl.value) {
         raceInputEl.value = raceArray[Math.floor(Math.random() * raceArray.length)];
@@ -478,10 +518,7 @@ async function DndAPI() {
 }
 async function init() {
     // await DndAPI()
-    // console.log(classArray)
-    // console.log(raceArray)
-    // console.log(alignmentArray)
-    // console.log(backgroundArray)
+
     if (!localStorage.getItem("myLevel")) {
         currentLevel = 0
     } else {
@@ -496,8 +533,6 @@ async function init() {
         bioArray = []
     } else {
         prevBio = JSON.parse(localStorage.getItem("mySavedBio"))
-        // console.log("else statement")
-        // console.log(prevBio)
         renderBio()
     }
     if (!localStorage.getItem("mySavedScore") && !localStorage.getItem("mySavedMods")) {
@@ -515,6 +550,13 @@ async function init() {
         prevProf = JSON.parse(localStorage.getItem("mySavedProf"))
         prevProfMods = JSON.parse(localStorage.getItem("mySavedProfMods"))
         renderProfs()
+    }
+    if (!localStorage.getItem('mySavedWeapons')) {
+        savedWeapons = [];
+    } else {
+        savedWeapons = JSON.parse(localStorage.getItem('mySavedWeapons'))
+        savedInv = JSON.parse(localStorage.getItem('mySavedInv'))
+        renderWeapons()
     }
 
 }
