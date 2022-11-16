@@ -18,4 +18,4 @@ Definitions for Intro Page
 N/A
 
 ## Link to Application
-[Link to application](httsp://cgordon5025.github.io/Dnd-Player-Maker)
+[Link to application](https://cgordon5025.github.io/Dnd-Player-Maker)
